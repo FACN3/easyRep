@@ -34,7 +34,10 @@ Based on the functionalities needed for this application, we have chosen to use:
 
 ### Prototype :zap:
 
-You can see our prototype [here](https://invis.io/3KFOBB96J7X)
+Click on the prototype to see it:
+
+<a href="https://invis.io/3KFOBB96J7X"><img src="https://github.com/FACN3/easyRep/blob/master/assets/Landing.png" width="200" height="400"></a>
+
 
 
 

@@ -1,5 +1,5 @@
-<h1 align="center"> EasyRep </h1>
-
+<h1 align="center">:star: EasyRep :star:
+</h1>
 Following the meetup, we need to build an app for people to make it easier for them to report a hazard without them having to give up their identity.
 
 

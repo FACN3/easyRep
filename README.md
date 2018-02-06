@@ -2,6 +2,11 @@
 </h1>
 Following the meetup, we need to build an app for people to make it easier for them to report a hazard without them having to give up their identity.
 
+### Contributors :zap:
+
+- [Marlen Awwad](https://github.com/MarlenAw) :tiger:
+- [Mynah Marie](https://github.com/MynahMarie) :sun_with_face:
+- [Hoslack Ochieng](https://github.com/hoslack) :earth_africa:
 
 ### Goals :zap:
 - Allow users to report an enviromental hazard anonymously.

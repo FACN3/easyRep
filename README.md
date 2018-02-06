@@ -6,7 +6,7 @@ Following the meetup, we need to build an app for people to make it easier for t
 
 - [Marlen Awwad](https://github.com/MarlenAw) :tiger:
 - [Mynah Marie](https://github.com/MynahMarie) :sun_with_face:
-- [Hoslack Ochieng](https://github.com/hoslack) :earth_africa:
+- [Hoslack Ochieng](https://github.com/hoslack)
 
 ### Goals :zap:
 - Allow users to report an enviromental hazard anonymously.

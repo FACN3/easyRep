@@ -29,6 +29,7 @@ Following the meetup, we need to build an app for people to make it easier for t
 Based on the functionalities needed for this application, we have chosen to use:
 
 - React and Redux
+- Tachyons for CSS
 - Express and Node
 - MongoDB
 

@@ -4,7 +4,7 @@ Following the meetup, we need to build an app for people to make it easier for t
 
 
 ### Goals :zap:
-- Allow users to report an enviromental hazard.
+- Allow users to report an enviromental hazard anonymously.
 - Allow users to see other reported hazards. 
 - Allow user to track his/her own reports by creating an account.
 

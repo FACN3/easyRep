@@ -5,19 +5,15 @@ import "tachyons/css/tachyons.css";
 import Landing from "./components/Landing";
 import Navbar from "./components/Navbar";
 
-class App extends Component {
-  render() {
-    return (
+const App = () => {
+  return (
+    <BrowserRouter>
       <div>
-        <BrowserRouter>
-          <div>
-            <Navbar />
-            <Route path="/" component={Landing} />
-          </div>
-        </BrowserRouter>
+        <Navbar />
+        <Route path="/" component={Landing} />
       </div>
-    );
-  }
-}
+    </BrowserRouter>
+  );
+};
 
 export default App;

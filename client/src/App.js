@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import 'tachyons/css/tachyons.css';
 import Landing from './components/Landing';
 import Navbar from './components/Navbar';
-import CategoryForm from './components/CategoryForm';
+import CategoryForm from './containers/CategoryForm';
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
         <div>
           <Navbar />
           <Route exact path="/" component={Landing} />
-          <Route exact path="/category" component={CategoryForm} />
+          <Route exact path="/categories" component={CategoryForm} />
         </div>
       </BrowserRouter>
     );

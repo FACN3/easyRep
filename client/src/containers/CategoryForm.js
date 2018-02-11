@@ -33,9 +33,9 @@ class CategoryForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ categories }) => {
   return {
-    categories: state.categories
+    categories
   };
 };
 

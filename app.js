@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 app.use('/api', reportRoutes);
 
 const port = 5000 || process.env.PORT;
+const host = 'localhost' || process.env.HOST;
 app.listen(port, () => {
-  console.log(`App listening on http://localhost:${port}`);
+  console.log(`App listening on http://${host}:${port}`);
 });

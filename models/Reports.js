@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const reportsShema = new Schema({
+const reportsSchema = new Schema({
   report_type: String,
   location: String,
   effects: String,
@@ -9,4 +9,4 @@ const reportsShema = new Schema({
   user_id: String,
 });
 
-module.exports = mongoose.model('report', reportsShema);
+module.exports = mongoose.model('report', reportsSchema);

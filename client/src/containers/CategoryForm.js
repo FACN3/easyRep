@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { reduxForm } from "redux-form";
 
 class CategoryForm extends Component {
   renderList() {
@@ -35,4 +36,9 @@ class CategoryForm extends Component {
 
 const mapStateToProps = ({ categories }) => ({ categories });
 
-export default connect(mapStateToProps)(CategoryForm);
+export default connect(mapStateToProps)(
+  reduxForm({
+    form: "reportForm",
+    destroyOnUnmount: false
+  })(CategoryForm)
+);

@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Landing from "./components/Landing";
 import Navbar from "./components/Navbar";
-import ReportNew from "./containers/ReportNew";
+import CategoryForm from "./containers/CategoryForm";
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
       <div>
         <Navbar />
         <Route exact path="/" component={Landing} />
-        <Route exact path="/categories" component={ReportNew} />
+        <Route exact path="/categories" component={CategoryForm} />
       </div>
     </BrowserRouter>
   );

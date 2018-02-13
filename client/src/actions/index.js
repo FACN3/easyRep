@@ -5,5 +5,9 @@ export const chooseCategory = category => {
 };
 
 export const chooseSymptoms = symptoms => {
-  return { type: CHOSEN_SYMPTOMS, payload: symptoms };
+  const chosenSymptoms = Object.keys(symptoms);
+  const symptomsSelected = chosenSymptoms.filter(item => {
+    return symptoms[item] === true;
+  })
+  return { type: CHOSEN_SYMPTOMS, payload: symptomsSelected };
 };

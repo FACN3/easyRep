@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import * as actions from '../actions';
-
 
 class SymptomsForm extends Component {
 
@@ -9,22 +9,21 @@ class SymptomsForm extends Component {
     super(props)
 
     this.state = {
-      redirect: false
+      redirect: false,
+      symptoms: {}
     }
 
     this.selectSymptoms = this.selectSymptoms.bind(this);
+    this.sendSymptoms = this.sendSymptoms.bind(this);
   }
 
   componentDidMount() {
-    // const symptoms = this.props.symptoms.reduce((res, item) => {
-    //   res[item] = false;
-    //   return res;
-    // }, {});
-    //
-    // this.setState({ symptoms: symptoms });
-    this.props.symptoms.map(symptom => {
-      this.setState({ [symptom]: false });
-    });
+    const symptoms = this.props.symptoms.reduce((res, item) => {
+      res[item] = false;
+      return res;
+    }, {});
+
+    this.setState({ symptoms: symptoms });
   }
 
   renderSymptoms(category) {
@@ -43,11 +42,20 @@ class SymptomsForm extends Component {
 
   selectSymptoms(event) {
     const symptom = event.target.value;
-    this.setState({ symptoms: {[symptom]: event.target.checked }})
+    this.setState({ symptoms: {...this.state.symptoms, [symptom]: event.target.checked }})
+  }
+
+  sendSymptoms(e) {
+    e.preventDefault();
+    this.props.chooseSymptoms(this.state.symptoms);
+    this.setState({ redirect: true });
   }
 
   render() {
-    console.log(this.state);
+    if (this.state.redirect) {
+      return <Redirect to="/location" />;
+    }
+
     return (
       <div className="mw7 center ph3 ph3-ns">
         <form className="tc pa2">
@@ -61,6 +69,7 @@ class SymptomsForm extends Component {
         </a>
         <a
           className="f6 fw3 link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
+          onClick={this.sendSymptoms}
         >
           Next
         </a>
@@ -72,8 +81,8 @@ class SymptomsForm extends Component {
 
 const mapStateToProps = ({ symptoms, category }) => ({ symptoms, category });
 
-const mapDispatchToProps = dispatch => {
-  chosenSymptoms: symptoms => dispatch(actions.chooseSymptoms(symptoms))
-}
+const mapDispatchToProps = dispatch => ({
+  chooseSymptoms: symptoms => dispatch(actions.chooseSymptoms(symptoms))
+});
 
-export default connect(mapStateToProps)(SymptomsForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SymptomsForm);

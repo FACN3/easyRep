@@ -1,8 +1,8 @@
-import { FETCH_CATEGORY } from "../actions/types";
+import { CHOSEN_SYMPTOMS } from '../actions/types';
 
 export default function(state = {}, action) {
   switch (action.type) {
-    case FETCH_CATEGORY:
+    case CHOSEN_SYMPTOMS:
       return action.payload;
     default:
       return state;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import * as actions from "../actions";
 import { FETCH_SYMPTOMS } from '../actions/types';
 
@@ -18,7 +18,6 @@ class CategoryForm extends Component {
   selectCategory(event) {
     event.preventDefault();
     const categorySelected = event.target.category.value;
-    console.log(categorySelected);
     this.props.changeCategory(categorySelected);
     this.props.changeSymptoms(categorySelected);
     this.setState({ redirect: true });

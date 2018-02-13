@@ -1,7 +1,7 @@
 body {
   background-color: #17bebb;
 }
-h1 {
+h1, label{
   font-family: "Arvo", serif;
 }
 ul {

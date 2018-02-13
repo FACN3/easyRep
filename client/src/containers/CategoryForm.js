@@ -64,9 +64,8 @@ class CategoryForm extends Component {
   }
 }
 
-const mapStateToProps = ({ categories, category }) => ({
-  categories,
-  category
+const mapStateToProps = ({ categories }) => ({
+  categories
 });
 
 const mapDispatchToProps = dispatch => ({

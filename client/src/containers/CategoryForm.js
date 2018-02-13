@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import * as actions from "../actions";
-import { FETCH_SYMPTOMS } from '../actions/types';
 
 class CategoryForm extends Component {
   constructor(props) {
@@ -70,7 +69,7 @@ const mapStateToProps = ({ categories }) => ({
 
 const mapDispatchToProps = dispatch => ({
   changeCategory: category => dispatch(actions.chooseCategory(category)),
-  changeSymptoms: category => dispatch({ type: FETCH_SYMPTOMS, payload: category})
+  changeSymptoms: category => dispatch(actions.renderSymptoms(category))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryForm);

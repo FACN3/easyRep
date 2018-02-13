@@ -1,0 +1,15 @@
+body {
+  background-color: #17bebb;
+}
+h1 {
+  font-family: "Arvo", serif;
+}
+ul {
+  list-style-type: none;
+}
+.orange {
+  color: #e4572e;
+}
+.bg-orange {
+  background-color: #e4572e;
+}

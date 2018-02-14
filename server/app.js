@@ -15,11 +15,11 @@ app.use(bodyParser.json());
 
 mongoose.connect(process.env.MONGO_URL);
 
-mongoose.connection.on('error', function(err) {
+mongoose.connection.on('error', err => {
   console.log('Mongoose default connection error: ' + err);
 });
 
-mongoose.connection.on('connected', function() {
+mongoose.connection.on('connected', () => {
   console.log('Mongoose default connection open');
   app.listen(port, () => {
     console.log(`App listening on http://${host}:${port}`);
@@ -39,7 +39,6 @@ if (process.env.NODE_ENV === 'production') {
 
   // Express will serve up the index.html file
   // if it doesn't recognize the route
-  const path = require('path');
   app.get('*', (req, res) => {
     res.sendFile(
       path.resolve(__dirname, '..', 'client', 'build', 'index.html')

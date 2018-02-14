@@ -48,10 +48,11 @@ class LocationForm extends Component {
             />
           </div>
           <div class="mw7 center pa4 flex items-center justify-center">
-            <Link to="/symptoms">
-              <a className="f4 link dim br-pill bg-green washed-green no-underline b--orange ba grow pv2 ph3 dib mr4">
-                Back
-              </a>
+            <Link
+              to="/symptoms"
+              className="f4 link dim br-pill bg-green washed-green no-underline b--orange ba grow pv2 ph3 dib mr4"
+            >
+              Back
             </Link>
             <button
               className="f4 link dim br-pill bg-green washed-green no-underline b--orange ba grow pv2 ph3 dib ml4"

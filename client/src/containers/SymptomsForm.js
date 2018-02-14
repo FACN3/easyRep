@@ -29,12 +29,15 @@ class SymptomsForm extends Component {
   renderSymptoms(category) {
     return this.props.symptoms.map(symptom => {
       return (
-        <div key={symptom}>
+        <div key={symptom} className="pv1-ns pv2">
       <input type="checkbox"
+        className="ml6-ns pl2-ns"
         name="symptom"
         value={symptom}
         onChange={this.selectSymptoms} />
-      <span className="white f4 pl2">{symptom}</span>
+
+      <span className="custom-font white f4 ml3-ns pl2 tj">{symptom}</span>
+
     </div>
   );
     });
@@ -57,18 +60,18 @@ class SymptomsForm extends Component {
     }
 
     return (
-      <div className="mw7 center ph3 ph3-ns">
-        <form className="tc pa2">
+      <div className="mw6 mw7-ns center ph3 ph3-ns">
+        <form className="pv3 pv4-ns ml4 pl4-ns">
           {this.renderSymptoms(this.props.category)}
         </form>
-        <div>
+        <div className="ph3">
         <a
-          className="f6 fw3 link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
+          className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
         >
           Back
         </a>
         <a
-          className="f6 fw3 link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
+          className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
           onClick={this.sendSymptoms}
         >
           Next

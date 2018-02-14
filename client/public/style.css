@@ -13,3 +13,7 @@ ul {
 .bg-orange {
   background-color: #e4572e;
 }
+
+.custom-font {
+  font-family: "Arvo", serif;
+}

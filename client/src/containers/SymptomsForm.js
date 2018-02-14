@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import * as actions from '../actions';
 
 class SymptomsForm extends Component {
@@ -9,7 +9,6 @@ class SymptomsForm extends Component {
     super(props)
 
     this.state = {
-      redirect: false,
       symptoms: {}
     }
 
@@ -48,16 +47,11 @@ class SymptomsForm extends Component {
     this.setState({ symptoms: {...this.state.symptoms, [symptom]: event.target.checked }})
   }
 
-  sendSymptoms(e) {
-    e.preventDefault();
+  sendSymptoms() {
     this.props.chooseSymptoms(this.state.symptoms);
-    this.setState({ redirect: true });
   }
 
   render() {
-    if (this.state.redirect) {
-      return <Redirect to="/location" />;
-    }
 
     return (
       <div className="mw6 mw7-ns center ph3 ph3-ns">
@@ -65,17 +59,19 @@ class SymptomsForm extends Component {
           {this.renderSymptoms(this.props.category)}
         </form>
         <div className="ph3">
-        <a
+        <Link
           className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
+          to="/categories"
         >
           Back
-        </a>
-        <a
+        </Link>
+        <Link
           className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
           onClick={this.sendSymptoms}
+          to="/location"
         >
           Next
-        </a>
+        </Link>
       </div>
       </div>
     );

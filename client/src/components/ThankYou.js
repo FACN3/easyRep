@@ -15,6 +15,15 @@ const ThankYou = () => {
           <img src={proud} alt="Congratulations!" />
       </div>
       <p className="tc white i">- The EasyRep Team -</p>
+      <div className="tc pt3">
+         <a
+          className="ttu tracked f3-ns f6 dib dim fw7-ns fw5 link br3 ph6 pv3-ns pv2 mb4 orange bg-white"
+          href="/"
+          title="Home"
+        >
+         Home 
+     </a>
+ </div>
     </div>
   );
 };

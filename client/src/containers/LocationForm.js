@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import * as actions from '../actions';
@@ -34,6 +34,7 @@ class LocationForm extends Component {
           onSubmit={this.handleSubmit}
           className="bg-orange mw7 center pa4 br2-ns ba b--black-10"
         >
+          <label className="f3 white">Location</label>
           <div className="cf">
             <Select
               className="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns"
@@ -45,8 +46,15 @@ class LocationForm extends Component {
               onChange={this.handleChange}
               options={locationdata}
             />
+          </div>
+          <div class="mw7 center pa4 flex items-center justify-center">
+            <Link to="/symptoms">
+              <a className="f4 link dim br-pill bg-green washed-green no-underline b--orange ba grow pv2 ph3 dib mr4">
+                Back
+              </a>
+            </Link>
             <button
-              className="f6 f5-l button-reset fl pv3 tc bn bg-animate bg-black-70 hover-bg-black white pointer w-100 w-25-m w-20-l br2-ns br--right-ns"
+              className="f4 link dim br-pill bg-green washed-green no-underline b--orange ba grow pv2 ph3 dib ml4"
               type="submit"
             >
               Next

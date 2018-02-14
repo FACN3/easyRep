@@ -23,7 +23,7 @@ class SymptomsForm extends Component {
       return res;
     }, {});
 
-    this.setState({ symptoms: symptoms });
+    this.setState({ symptoms });
   }
 
   renderSymptoms(category) {

@@ -26,11 +26,6 @@ mongoose.connection.on('connected', () => {
   });
 });
 
-process.on('unhandledRejection', up => {
-  throw up;
-}); //in Node 8.2.1 if theres an error, the errors will not crash the program. Instead a warning is printed..so this code
-// is here in order for that warning to go away and showing the error like usual
-
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production assets
   // like our main.js file, or main.css file!

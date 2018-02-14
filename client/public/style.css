@@ -1,7 +1,8 @@
 body {
   background-color: #17bebb;
 }
-h1 {
+h1,
+label {
   font-family: 'Arvo', serif;
 }
 ul {
@@ -13,6 +14,10 @@ ul {
 .bg-orange {
   background-color: #e4572e;
 }
+
 .bg-green {
   background-color: #17bebb;
+}
+.custom-font {
+  font-family: 'Arvo', serif;
 }

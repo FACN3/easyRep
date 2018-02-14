@@ -31,13 +31,20 @@ process.on('unhandledRejection', up => {
 }); //in Node 8.2.1 if theres an error, the errors will not crash the program. Instead a warning is printed..so this code
 // is here in order for that warning to go away and showing the error like usual
 
-// Express will serve up production assets
-// like our main.js file, or main.css file!
-app.use('/api', reportRoutes);
-app.use(express.static('client/build'));
+if (process.env.NODE_ENV === 'production') {
+  // Express will serve up production assets
+  // like our main.js file, or main.css file!
+  app.use('/api', reportRoutes);
+  app.use(express.static('client/build'));
 
-// Express will serve up the index.html file
-// if it doesn't recognize the route
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'client', 'build', 'index.html'));
-});
+  // Express will serve up the index.html file
+  // if it doesn't recognize the route
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(
+      path.resolve(__dirname, '..', 'client', 'build', 'index.html')
+    );
+  });
+} else {
+  app.use('/api', reportRoutes);
+}

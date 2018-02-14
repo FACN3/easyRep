@@ -2,6 +2,8 @@ import airPollution from '../icons/1.png';
 import waterPollution from '../icons/2.png';
 import wasteDisposal from '../icons/3.png';
 import badInfra from '../icons/4.png';
+import burningWaste from '../icons/garbage-burning.png';
+import noise from '../icons/noise.png';
 
 export default function() {
   return [
@@ -27,12 +29,12 @@ export default function() {
     },
     {
       name: 'Waste Burning',
-      icon: '',
+      icon: burningWaste,
       alt: 'Waste Burning icon'
     },
     {
       name: 'Noise',
-      icon: '',
+      icon: noise,
       alt: 'Noise icon'
     }
   ];

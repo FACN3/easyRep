@@ -8,32 +8,32 @@ export default function() {
     {
       name: 'Waste Disposal',
       icon: wasteDisposal,
-      alt: 'Waste Burning icon',
+      alt: 'Waste Burning icon'
     },
     {
       name: 'Air Pollution',
       icon: airPollution,
-      alt: 'Air Pollution icon',
+      alt: 'Air Pollution icon'
     },
     {
       name: 'Water Pollution',
       icon: waterPollution,
-      alt: 'Water Pollution icon',
+      alt: 'Water Pollution icon'
     },
     {
       name: 'Bad Infrastructures',
       icon: badInfra,
-      alt: 'Bad Infrastructures icon',
+      alt: 'Bad Infrastructures icon'
     },
     {
       name: 'Waste Burning',
       icon: '',
-      alt: 'Waste Burning icon',
+      alt: 'Waste Burning icon'
     },
     {
       name: 'Noise',
       icon: '',
-      alt: 'Noise icon',
-    },
+      alt: 'Noise icon'
+    }
   ];
 }

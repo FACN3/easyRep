@@ -21,7 +21,7 @@ export default function() {
       alt: 'Water Pollution icon'
     },
     {
-      name: 'Bad Infrastructures',
+      name: 'Infrastructures',
       icon: badInfra,
       alt: 'Bad Infrastructures icon'
     },

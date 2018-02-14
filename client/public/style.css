@@ -17,3 +17,15 @@ ul {
 .custom-font {
   font-family: "Arvo", serif;
 }
+
+@media screen and (max-width: 375px) {
+  .super-small {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-height: 812px) {
+  .super-long {
+    padding-top: 4.5rem;
+  }
+}

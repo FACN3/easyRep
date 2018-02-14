@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
 import * as actions from "../actions";
 
 class CategoryForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      redirect: false
+    };
 
     this.selectCategory = this.selectCategory.bind(this);
   }
@@ -14,21 +17,22 @@ class CategoryForm extends Component {
   selectCategory(event) {
     event.preventDefault();
     const categorySelected = event.target.category.value;
-
     this.props.changeCategory(categorySelected);
+    this.props.changeSymptoms(categorySelected);
+    this.setState({ redirect: true });
   }
 
   renderList() {
     return this.props.categories.map(category => {
       return (
         <li key={category.name}>
-          <div className="fl w-50 w-50-ns pa2 ">
+          <div className="fl w-50 w-50-ns pa2">
             <form onSubmit={this.selectCategory}>
-              <label className="f4 black">{category.name}</label>
+              <label className="f4 white">{category.name}</label>
               <br />
               <input type="hidden" name="category" value={category.name} />
               <button
-                className="hover-bg-orange bg-white pv4 h4 w4 br4"
+                className="hover-bg-orange bg-white pv2 h4 w4 br4"
                 type="submit"
               >
                 <img
@@ -45,6 +49,10 @@ class CategoryForm extends Component {
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/symptoms" />
+    }
+
     return (
       <div className="mw7 center ph3-ns">
         <div className="cf ph2-ns">
@@ -60,7 +68,8 @@ const mapStateToProps = ({ categories }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  changeCategory: category => dispatch(actions.chooseCategory(category))
+  changeCategory: category => dispatch(actions.chooseCategory(category)),
+  changeSymptoms: category => dispatch(actions.renderSymptoms(category))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryForm);

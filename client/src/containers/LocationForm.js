@@ -47,7 +47,7 @@ class LocationForm extends Component {
               options={locationdata}
             />
           </div>
-          <div class="mw7 center pa4 flex items-center justify-center">
+          <div className="mw7 center pa4 flex items-center justify-center">
             <Link
               to="/symptoms"
               className="f4 link dim br-pill bg-green washed-green no-underline b--orange ba grow pv2 ph3 dib mr4"

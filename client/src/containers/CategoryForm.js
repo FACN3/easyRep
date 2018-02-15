@@ -43,13 +43,17 @@ class CategoryForm extends Component {
     return this.props.categories.map(category => {
       return (
         <li key={category.name}>
-          <div className="fl w-50 w-50-ns pa2">
-            <form onSubmit={this.selectCategory}>
-              <label className="f4 white">{category.name}</label>
+          <div className="fl w-50-ns ma ph0-ns">
+            <form
+              onSubmit={this.selectCategory}
+              className="tc pl2 mr3"
+              >
+              <label className="f4-ns f5 white">{category.name}</label>
+              <br />
               <br />
               <input type="hidden" name="category" value={category.name} />
               <button
-                className="hover-bg-orange bg-white pv2 h4 w4 br4"
+                className="hover-bg-orange bg-white pv2 h4 w4 br4 mb4"
                 type="submit"
               >
                 <img
@@ -73,8 +77,8 @@ class CategoryForm extends Component {
     }
 
     return (
-      <div className="mw7 center ph3-ns">
-        <div className="cf ph2-ns">
+      <div className="mw7 center ph3-ns ">
+        <div className="cf super-small super-long pv5-ns ph2-ns ml3 mr5-ns">
           <ul>{this.renderList()}</ul>
         </div>
       </div>

@@ -21,7 +21,7 @@ export default (state = [], action) => {
           'Can not breathe because of the dust',
           'Need to wear masks'
         ],
-        'Bad Infrastructures': [
+        'Infrastructures': [
           'Roads are dangerous because of holes',
           'I got injured'
         ]

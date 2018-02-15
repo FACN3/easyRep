@@ -7,6 +7,8 @@ import SymptomsForm from './containers/SymptomsForm';
 import LocationForm from './containers/LocationForm';
 import UploadForm from './containers/UploadForm';
 import ReviewForm from './containers/ReviewForm';
+import ThankYou from './components/ThankYou';
+
 
 const App = () => {
   return (
@@ -19,6 +21,7 @@ const App = () => {
         <Route exact path="/symptoms" component={SymptomsForm} />
         <Route exact path="/upload" component={UploadForm} />
         <Route exact path="/review" component={ReviewForm} />
+        <Route exact path="/thankyou" component={ThankYou} />
       </div>
     </BrowserRouter>
   );

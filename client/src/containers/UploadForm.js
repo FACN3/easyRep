@@ -7,7 +7,9 @@ class UploadForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      redirectHome: false
+    };
 
     this.updateBack = this.updateBack.bind(this);
     this.updateNext = this.updateNext.bind(this);

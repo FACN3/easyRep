@@ -14,7 +14,7 @@ const App = () => {
         <Route exact path="/" component={Landing} />
         <Route exact path="/categories" component={CategoryForm} />
         <Route exact path="/location" component={LocationForm} />
-        <Route exact path="/symptoms" component={SymptomsForm} />4
+        <Route exact path="/symptoms" component={SymptomsForm} />
       </div>
     </BrowserRouter>
   );

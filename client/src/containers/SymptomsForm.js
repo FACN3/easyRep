@@ -9,7 +9,7 @@ class SymptomsForm extends Component {
 
     this.state = {
       symptoms: {},
-      redirectHome: false,
+      redirectHome: false
     };
 
     this.selectSymptoms = this.selectSymptoms.bind(this);
@@ -118,14 +118,14 @@ const mapStateToProps = ({ symptoms, category, pathHistory, page }) => ({
   symptoms,
   category,
   pathHistory,
-  page,
+  page
 });
 
 const mapDispatchToProps = dispatch => ({
   chooseSymptoms: symptoms => dispatch(actions.chooseSymptoms(symptoms)),
   countPages: (page, direction) =>
     dispatch(actions.pageCounter(page, direction)),
-  addToHistory: history => dispatch(actions.recordHistory(history)),
+  addToHistory: history => dispatch(actions.recordHistory(history))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SymptomsForm);

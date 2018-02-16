@@ -78,7 +78,7 @@ const mapStateToProps = ({ page, pathHistory }) => ({ page, pathHistory });
 const mapDispatchToProps = dispatch => ({
   countPages: (page, direction) =>
     dispatch(actions.pageCounter(page, direction)),
-  addToHistory: history => dispatch(actions.recordHistory(history)),
+  addToHistory: history => dispatch(actions.recordHistory(history))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UploadForm);

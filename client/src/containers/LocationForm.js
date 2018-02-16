@@ -13,7 +13,7 @@ class LocationForm extends Component {
       selectedOption: '',
       redirect: false,
       redirectHome: false,
-      redirectBack: false,
+      redirectBack: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -120,14 +120,14 @@ class LocationForm extends Component {
 const mapStateToProps = ({ page, pathHistory, chosenSymptoms }) => ({
   page,
   pathHistory,
-  chosenSymptoms,
+  chosenSymptoms
 });
 
 const mapDispatchToProps = dispatch => ({
   chooseLocation: location => dispatch(actions.chooseLocation(location)),
   countPages: (page, direction) =>
     dispatch(actions.pageCounter(page, direction)),
-  addToHistory: history => dispatch(actions.recordHistory(history)),
+  addToHistory: history => dispatch(actions.recordHistory(history))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationForm);

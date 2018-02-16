@@ -9,7 +9,7 @@ class Landing extends Component {
 
     this.state = {
       page: 0,
-      history: [],
+      history: []
     };
   }
 
@@ -56,7 +56,7 @@ class Landing extends Component {
 const mapDispatchToProps = dispatch => ({
   startRoute: (page, direction) =>
     dispatch(actions.pageCounter(page, direction)),
-  addToHistory: history => dispatch(actions.recordHistory(history)),
+  addToHistory: history => dispatch(actions.recordHistory(history))
 });
 
 export default connect(null, mapDispatchToProps)(Landing);

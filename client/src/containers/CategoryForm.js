@@ -9,7 +9,7 @@ class CategoryForm extends Component {
 
     this.state = {
       redirect: false,
-      redirectHome: false,
+      redirectHome: false
     };
 
     this.selectCategory = this.selectCategory.bind(this);
@@ -90,7 +90,7 @@ class CategoryForm extends Component {
 const mapStateToProps = ({ categories, page, pathHistory }) => ({
   categories,
   page,
-  pathHistory,
+  pathHistory
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -98,7 +98,7 @@ const mapDispatchToProps = dispatch => ({
   changeSymptoms: category => dispatch(actions.renderSymptoms(category)),
   countPages: (page, direction) =>
     dispatch(actions.pageCounter(page, direction)),
-  addToHistory: history => dispatch(actions.recordHistory(history)),
+  addToHistory: history => dispatch(actions.recordHistory(history))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryForm);

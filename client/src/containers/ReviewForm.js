@@ -8,7 +8,7 @@ class ReviewForm extends Component {
     super(props);
 
     this.state = {
-      redirectHome: false,
+      redirectHome: false
     };
 
     this.updateBack = this.updateBack.bind(this);
@@ -82,7 +82,7 @@ const mapStateToProps = ({ page, pathHistory }) => ({ page, pathHistory });
 const mapDispatchToProps = dispatch => ({
   countPages: (page, direction) =>
     dispatch(actions.pageCounter(page, direction)),
-  addToHistory: history => dispatch(actions.recordHistory(history)),
+  addToHistory: history => dispatch(actions.recordHistory(history))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewForm);

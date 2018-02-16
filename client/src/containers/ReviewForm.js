@@ -81,7 +81,7 @@ const mapStateToProps = ({ page, pathHistory }) => ({ page, pathHistory });
 
 const mapDispatchToProps = dispatch => ({
   countPages: (page, direction) =>
-    dispatch(actions.validateRoute(page, direction)),
+    dispatch(actions.pageCounter(page, direction)),
   addToHistory: history => dispatch(actions.recordHistory(history)),
 });
 

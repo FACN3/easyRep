@@ -4,7 +4,7 @@ import categoryReducer from './categoryReducer';
 import locationReducer from './locationReducer';
 import symptomsReducer from './symptomsReducer';
 import chosenSymptomsReducer from './chosenSymptomsReducer';
-import validateRouteReducer from './validateRouteReducer';
+import pageCounterReducer from './pageCounterReducer';
 import historyReducer from './historyReducer';
 
 export default combineReducers({
@@ -13,6 +13,6 @@ export default combineReducers({
   location: locationReducer,
   symptoms: symptomsReducer,
   chosenSymptoms: chosenSymptomsReducer,
-  page: validateRouteReducer,
+  page: pageCounterReducer,
   pathHistory: historyReducer
 });

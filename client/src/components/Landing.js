@@ -15,7 +15,7 @@ class Landing extends Component {
 
   startReport() {
     const history = this.state.history.push('home');
-    this.setState({ history });
+    this.setState({ history});
     this.props.addToHistory(this.state.history);
     this.props.startRoute(this.state.page, 'next');
   }
@@ -55,7 +55,7 @@ class Landing extends Component {
 
 const mapDispatchToProps = dispatch => ({
   startRoute: (page, direction) =>
-    dispatch(actions.validateRoute(page, direction)),
+    dispatch(actions.pageCounter(page, direction)),
   addToHistory: history => dispatch(actions.recordHistory(history)),
 });
 

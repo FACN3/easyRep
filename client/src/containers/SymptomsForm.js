@@ -124,7 +124,7 @@ const mapStateToProps = ({ symptoms, category, pathHistory, page }) => ({
 const mapDispatchToProps = dispatch => ({
   chooseSymptoms: symptoms => dispatch(actions.chooseSymptoms(symptoms)),
   countPages: (page, direction) =>
-    dispatch(actions.validateRoute(page, direction)),
+    dispatch(actions.pageCounter(page, direction)),
   addToHistory: history => dispatch(actions.recordHistory(history)),
 });
 

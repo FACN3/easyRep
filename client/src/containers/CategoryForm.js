@@ -97,7 +97,7 @@ const mapDispatchToProps = dispatch => ({
   changeCategory: category => dispatch(actions.chooseCategory(category)),
   changeSymptoms: category => dispatch(actions.renderSymptoms(category)),
   countPages: (page, direction) =>
-    dispatch(actions.validateRoute(page, direction)),
+    dispatch(actions.pageCounter(page, direction)),
   addToHistory: history => dispatch(actions.recordHistory(history)),
 });
 

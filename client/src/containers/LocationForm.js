@@ -25,10 +25,12 @@ class LocationForm extends Component {
     const properPath = ['home', 'categories', 'symptoms'];
     const prevPath = this.props.pathHistory;
 
+    const isExact = [prevPath].filter(idx => {
+      return prevPath[idx] !== properPath[idx];
+    });
+
     if (
-      prevPath[0] !== properPath[0] ||
-      prevPath[1] !== properPath[1] ||
-      prevPath[2] !== properPath[2] ||
+      isExact.length !== 0 ||
       this.props.page !== 3 ||
       prevPath.length !== 3
     ) {

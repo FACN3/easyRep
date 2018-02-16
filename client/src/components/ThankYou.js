@@ -18,13 +18,12 @@ class ThankYou extends Component {
     const properPath = ['home', 'categories', 'symptoms', 'location', 'upload', 'review'];
     const prevPath = this.props.pathHistory;
 
+    const isExact = [prevPath].filter(idx => {
+      return prevPath[idx] !== properPath[idx];
+    });
+
     if (
-      prevPath[0] !== properPath[0] ||
-      prevPath[1] !== properPath[1] ||
-      prevPath[2] !== properPath[2] ||
-      prevPath[3] !== properPath[3] ||
-      prevPath[4] !== properPath[4] ||
-      prevPath[5] !== properPath[5] ||
+      isExact.length !== 0 ||
       this.props.page !== 6 ||
       prevPath.length !== 6
     ) {

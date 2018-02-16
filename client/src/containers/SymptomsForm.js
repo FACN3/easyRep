@@ -28,9 +28,12 @@ class SymptomsForm extends Component {
     const properPath = ['home', 'categories'];
     const prevPath = this.props.pathHistory;
 
+    const isExact = [prevPath].filter(idx => {
+      return prevPath[idx] !== properPath[idx];
+    });
+
     if (
-      prevPath[0] !== properPath[0] ||
-      prevPath[1] !== properPath[1] ||
+      isExact.length !== 0 ||
       this.props.page !== 2 ||
       prevPath.length !== 2
     ) {

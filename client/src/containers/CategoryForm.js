@@ -19,7 +19,11 @@ class CategoryForm extends Component {
     const properPath = 'home';
     const prevPath = this.props.pathHistory;
 
-    if (prevPath[0] !== properPath && this.props.page !== 1) {
+    if (
+      prevPath[0] !== properPath ||
+      this.props.page !== 1 ||
+      prevPath.length !== 1
+    ) {
       this.setState({ redirectHome: true });
     }
   }
@@ -44,10 +48,7 @@ class CategoryForm extends Component {
       return (
         <li key={category.name}>
           <div className="fl w-50-ns ma ph0-ns">
-            <form
-              onSubmit={this.selectCategory}
-              className="tc pl2 mr3"
-              >
+            <form onSubmit={this.selectCategory} className="tc pl2 mr3">
               <label className="f4-ns f5 white">{category.name}</label>
               <br />
               <br />

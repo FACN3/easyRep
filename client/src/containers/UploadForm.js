@@ -19,11 +19,12 @@ class UploadForm extends Component {
     const properPath = ['home', 'categories', 'symptoms', 'location'];
     const prevPath = this.props.pathHistory;
 
+    const isExact = [prevPath].filter(idx => {
+      return prevPath[idx] !== properPath[idx];
+    });
+
     if (
-      prevPath[0] !== properPath[0] ||
-      prevPath[1] !== properPath[1] ||
-      prevPath[2] !== properPath[2] ||
-      prevPath[3] !== properPath[3] ||
+      isExact.length !== 0 ||
       this.props.page !== 4 ||
       prevPath.length !== 4
     ) {

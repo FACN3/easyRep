@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
 import proud from '../icons/proud.gif';
 
 class ThankYou extends Component {

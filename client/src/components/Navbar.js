@@ -1,14 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const Navbar = () => {
   return (
-    <header className="bg-orange w-100 pa3 pv4-ns ph4-m ph5-l">
-      <nav className="f6 fw6 ttu tracked tc">
-        <a
-          className="f6 link dim br3 ph3 pv2 mb2 dib orange bg-white"
-          href="/"
-          title="Home"
-        >
+    <header className=" headerNav pv3 pv3-ns ph4-m ph5-l">
+      <nav className="f6 fw6 tc">
+        <a className=" f4 link br3 ph3 white" href="/" title="Home">
           View Reports
         </a>
       </nav>

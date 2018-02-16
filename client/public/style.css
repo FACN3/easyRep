@@ -1,9 +1,18 @@
 body {
-  background-color: #17bebb;
+  /* background-color: #17bebb; */
+  background-image: url('./edited.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  height: 60rem;
 }
+
 h1,
-label {
-  font-family: 'Arvo', serif;
+label,
+h2,
+h3 {
+  font-family: 'Special Elite', cursive;
+  color: #006400;
 }
 ul {
   list-style-type: none;
@@ -20,4 +29,38 @@ ul {
 }
 .custom-font {
   font-family: 'Arvo', serif;
+}
+
+.reportButton {
+  background-color: #ff4500;
+  color: #fff;
+  border: 1px solid;
+  box-shadow: 5px 5px 5px rgba(88, 88, 88, 0.4);
+}
+
+.aboutUsLink {
+  font-weight: bolder;
+  font-size: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  font-family: 'Special Elite', cursive;
+  color: #006400;
+}
+
+.takingAvtionDev {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: max-content;
+  margin: auto;
+}
+
+.headerNav {
+  background-color: #ff4500;
+  font-family: 'Special Elite', cursive;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-image: url('./edited.jpg');
+    height: 50rem;
+  }
 }

@@ -39,7 +39,7 @@ export default (state = [], action) => {
           'Eyes watering',
           'Bad smell in the air'
         ],
-        'Bad Infrastructures': [
+        'Infrastructures': [
           'Roads are dangerous because of holes',
           'I got injured',
           'Pothole damanging tires and vehicles',

@@ -38,6 +38,7 @@ ul {
   font-family: 'Arvo', serif;
 }
 
+
 .reportButton {
   background-color: #ff4500;
   color: #fff;
@@ -82,14 +83,14 @@ ul {
   user-select: none;
 }
 
-/* Hide the browser's default checkbox */
+
 .container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
-/* Create a custom checkbox */
+
 .checkmark {
   position: absolute;
   top: 0;
@@ -140,5 +141,18 @@ ul {
   .landingBackground {
     background-image: url('./edited.jpg');
     height: 50rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .super-small {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-height: 812px) {
+  .super-long {
+    padding-top: 4.5rem;
+
   }
 }

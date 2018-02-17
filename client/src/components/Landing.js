@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
-    <div>
+    <div className="landingBackground">
       <header className="tc pv4">
         <h1 className="f1">EasyRep</h1>
         <h2 className="f3">

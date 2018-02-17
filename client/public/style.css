@@ -1,16 +1,23 @@
 body {
-  /* background-color: #17bebb; */
-  background-image: url('./edited.jpg');
+  background-image: url('./edited1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
   height: 60rem;
 }
+.landingBackground {
+  background-image: url('./edited.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  height: 55rem;
+}
 
 h1,
 label,
 h2,
-h3 {
+h3,
+span {
   font-family: 'Special Elite', cursive;
   color: #006400;
 }
@@ -53,13 +60,84 @@ ul {
   margin: auto;
 }
 
-.headerNav {
+.viewReportButton {
   background-color: #ff4500;
   font-family: 'Special Elite', cursive;
+  box-shadow: 5px 5px 5px rgba(88, 88, 88, 0.2);
+}
+
+.viewReportButton a {
+  padding: 8px;
+  border: 1px solid;
+  box-shadow: 5px 5px 5px rgba(88, 88, 88, 0.2);
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+  border: 1px solid #ff4500;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: #ff4500;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 0.6875rem;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
 
 @media screen and (max-width: 600px) {
   body {
+    background-image: url('./edited1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height: 55rem;
+  }
+  .landingBackground {
     background-image: url('./edited.jpg');
     height: 50rem;
   }

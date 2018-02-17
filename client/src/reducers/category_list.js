@@ -31,7 +31,7 @@ export default function() {
       alt: 'Waste Burning icon'
     },
     {
-      name: 'Noise',
+      name: 'Noise Pollution',
       icon: '',
       alt: 'Noise icon'
     }

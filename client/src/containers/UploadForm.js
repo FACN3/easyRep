@@ -51,8 +51,8 @@ class UploadForm extends Component {
     return (
       <div className="mw6 mw7-ns center ph3 ph3-ns">
         <div className="ph3">
-          <h2 className="white custom-font f3 tc">Upload Media Page</h2>
-          <h3 className="white custom-font f5 tc">Under Construction</h3>
+          <h2 className="custom-font f3 tc">Upload Media Page</h2>
+          <h3 className="custom-font f5 tc">Under Construction</h3>
           <Link
             className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
             to="/location"

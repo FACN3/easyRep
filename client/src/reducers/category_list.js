@@ -23,6 +23,11 @@ export default function() {
       alt: 'Water Pollution icon'
     },
     {
+      name: 'Noise Pollution',
+      icon: noise,
+      alt: 'Noise icon'
+    },
+    {
       name: 'Infrastructures',
       icon: badInfra,
       alt: 'Bad Infrastructures icon'
@@ -31,11 +36,6 @@ export default function() {
       name: 'Waste Burning',
       icon: burningWaste,
       alt: 'Waste Burning icon'
-    },
-    {
-      name: 'Noise',
-      icon: noise,
-      alt: 'Noise icon'
     }
   ];
 }

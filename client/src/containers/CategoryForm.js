@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import * as actions from "../actions";
+import * as actions from '../actions';
 
 class CategoryForm extends Component {
   constructor(props) {
@@ -26,17 +26,13 @@ class CategoryForm extends Component {
     return this.props.categories.map(category => {
       return (
         <li key={category.name}>
-          <div className="fl w-50-ns ma ph0-ns">
-            <form
-              onSubmit={this.selectCategory}
-              className="tc pl2 mr3"
-              >
-              <label className="f4-ns f5 white">{category.name}</label>
-              <br />
+          <div className="fl tc w-50 w-50-ns pa3">
+            <form onSubmit={this.selectCategory}>
+              <label className="f4">{category.name}</label>
               <br />
               <input type="hidden" name="category" value={category.name} />
               <button
-                className="hover-bg-orange bg-white pv2 h4 w4 br4 mb4"
+                className="hover-bg-orange bg-white pv2 h4 w4 w5-ns br4"
                 type="submit"
               >
                 <img
@@ -54,13 +50,13 @@ class CategoryForm extends Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/symptoms" />
+      return <Redirect to="/symptoms" />;
     }
 
     return (
-      <div className="mw7 center ph3-ns ">
-        <div className="cf super-small super-long pv5-ns ph2-ns ml3 mr5-ns">
-          <ul>{this.renderList()}</ul>
+      <div className="mw7 center ph3-ns">
+        <div className="cf ph2-ns">
+          <ul className="tc">{this.renderList()}</ul>
         </div>
       </div>
     );

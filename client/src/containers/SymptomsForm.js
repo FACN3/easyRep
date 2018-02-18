@@ -4,13 +4,12 @@ import { Link } from 'react-router-dom';
 import * as actions from '../actions';
 
 class SymptomsForm extends Component {
-
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       symptoms: {}
-    }
+    };
 
     this.selectSymptoms = this.selectSymptoms.bind(this);
     this.sendSymptoms = this.sendSymptoms.bind(this);
@@ -29,22 +28,28 @@ class SymptomsForm extends Component {
     return this.props.symptoms.map(symptom => {
       return (
         <div key={symptom} className="pv1-ns pv2">
-      <input type="checkbox"
-        className="ml6-ns pl2-ns"
-        name="symptom"
-        value={symptom}
-        onChange={this.selectSymptoms} />
+          <label className="container">
+            {symptom}
+            <input
+              type="checkbox"
+              className="checkbox"
+              name="symptom"
+              value={symptom}
+              onChange={this.selectSymptoms}
+            />
 
-      <span className="custom-font white f4 ml3-ns pl2 tj">{symptom}</span>
-
-    </div>
-  );
+            <span className="checkmark f4 ml3-ns pl2 tj" />
+          </label>
+        </div>
+      );
     });
   }
 
   selectSymptoms(event) {
     const symptom = event.target.value;
-    this.setState({ symptoms: {...this.state.symptoms, [symptom]: event.target.checked }})
+    this.setState({
+      symptoms: { ...this.state.symptoms, [symptom]: event.target.checked }
+    });
   }
 
   sendSymptoms() {
@@ -52,27 +57,26 @@ class SymptomsForm extends Component {
   }
 
   render() {
-
     return (
       <div className="mw6 mw7-ns center ph3 ph3-ns">
         <form className="pv3 pv4-ns ml4 pl4-ns">
           {this.renderSymptoms(this.props.category)}
         </form>
         <div className="ph3">
-        <Link
-          className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
-          to="/categories"
-        >
-          Back
-        </Link>
-        <Link
-          className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
-          onClick={this.sendSymptoms}
-          to="/location"
-        >
-          Next
-        </Link>
-      </div>
+          <Link
+            className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl ba"
+            to="/categories"
+          >
+            Back
+          </Link>
+          <Link
+            className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr ba"
+            onClick={this.sendSymptoms}
+            to="/location"
+          >
+            Next
+          </Link>
+        </div>
       </div>
     );
   }

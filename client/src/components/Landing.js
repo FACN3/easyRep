@@ -21,30 +21,30 @@ class Landing extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <header className="tc pv4 pv5-ns">
-          <h1 className="white pt5 fw3 f1">EasyRep</h1>
-          <h2 className="white pa1 fw1 f2">
-            Feel safe while making a difference
-          </h2>
-        </header>
-        <div className="tc">
-          <Link
-            className="f2 link dim br3 ph5 pv3 mb2 dib white bg-orange"
+      return (
+        <div className="landingBackground">
+          <header className="tc pv4">
+            <h1 className="f1">EasyRep</h1>
+            <h2 className="f3">
+              Report a hazard without giving any personal details
+            </h2>
+          </header>
+          <div className=" tc">
+            <Link
+              className="reportButton f2 link dim br3 ph5 pv3 mb2 dib"
             to="/categories"
             onClick={() => this.startReport()}
           >
             REPORT
           </Link>
         </div>
-        <div className="tc pv4">
-          <h3 className="white f4 fw3">
-            Taking action is fast, anonymous and EASY!
+        <div className="takingAvtionDev tc pt4">
+          <h3 className=" f4 ">
+            Taking action is fast<br /> anonymous and EASY!
           </h3>
         </div>
-        <div className="tc">
-          <a href="/" className="link f3">
+        <div className="tc pv5">
+          <a href="/" className="aboutUsLink">
             About Us
           </a>
         </div>

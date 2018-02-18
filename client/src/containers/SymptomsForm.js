@@ -45,15 +45,18 @@ class SymptomsForm extends Component {
     return this.props.symptoms.map(symptom => {
       return (
         <div key={symptom} className="pv1-ns pv2">
-          <input
-            type="checkbox"
-            className="ml6-ns pl2-ns"
-            name="symptom"
-            value={symptom}
-            onChange={this.selectSymptoms}
-          />
+          <label className="container">
+            {symptom}
+            <input
+              type="checkbox"
+              className="checkbox"
+              name="symptom"
+              value={symptom}
+              onChange={this.selectSymptoms}
+            />
 
-          <span className="custom-font white f4 ml3-ns pl2 tj">{symptom}</span>
+            <span className="checkmark f4 ml3-ns pl2 tj" />
+          </label>
         </div>
       );
     });
@@ -69,7 +72,7 @@ class SymptomsForm extends Component {
   selectSymptoms(event) {
     const symptom = event.target.value;
     this.setState({
-      symptoms: { ...this.state.symptoms, [symptom]: event.target.checked },
+      symptoms: { ...this.state.symptoms, [symptom]: event.target.checked }
     });
   }
 
@@ -102,7 +105,7 @@ class SymptomsForm extends Component {
             Back
           </Link>
           <Link
-            className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
+            className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr ba"
             onClick={this.sendSymptoms}
             to="/location"
           >

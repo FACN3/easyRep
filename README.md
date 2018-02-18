@@ -4,7 +4,7 @@ Following the meetup, we need to build an app for people to make it easier for t
 
 ### Contributors :zap:
 
-- [Marlen Awwad](https://github.com/MarlenAw) :tiger:
+- [Marlen Awwad](https://github.com/MarlenAw) 
 - [Mynah Marie](https://github.com/MynahMarie) :sun_with_face:
 - [Hoslack Ochieng](https://github.com/hoslack)
 

@@ -6,6 +6,7 @@ import symptomsReducer from './symptomsReducer';
 import chosenSymptomsReducer from './chosenSymptomsReducer';
 import pageCounterReducer from './pageCounterReducer';
 import historyReducer from './historyReducer';
+import emailSending from './emailSending';
 
 export default combineReducers({
   categories: categoryList,
@@ -14,5 +15,6 @@ export default combineReducers({
   symptoms: symptomsReducer,
   chosenSymptoms: chosenSymptomsReducer,
   page: pageCounterReducer,
-  pathHistory: historyReducer
+  pathHistory: historyReducer,
+  emailSending: emailSending
 });

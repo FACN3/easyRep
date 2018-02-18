@@ -13,6 +13,7 @@ class ReviewForm extends Component {
 
     this.updateBack = this.updateBack.bind(this);
     this.updateNext = this.updateNext.bind(this);
+    this.sendEmail = this.sendEmail.bind(this);
     this.listSymptoms = this.listSymptoms.bind(this);
   }
 
@@ -55,6 +56,22 @@ class ReviewForm extends Component {
     });
   }
 
+  sendEmail() {
+    const { category, location, chosenSymptoms } = this.props;
+
+    const emailText = `Dear Mr. John Doe, I would like to report ${
+      category
+    } hazard in ${location}.
+        The inconveniences I am experiencing are: ${chosenSymptoms}.
+        Attached is a picture of the problem. Please take care of this issue right away.
+        Best regards,
+        A concerned citizen`;
+
+    const email = { email: emailText };
+    this.props.emailSending(email);
+    this.updateNext();
+  }
+
   render() {
     if (this.state.redirectHome) {
       return <Redirect to="/" />;
@@ -64,17 +81,17 @@ class ReviewForm extends Component {
         <div className="ph3">
           <div>
             <p> Dear Mr. John Doe,</p>
-            <p>
+            <div>
               I would like to report {this.props.category} hazard in{' '}
               {this.props.location}.
               <p>The inconveniences I am experiencing are: </p>
               <ul className="symptomList">
                 {this.listSymptoms(this.props.chosenSymptoms)}
-              </ul>Joined to this email is a picture of the problem. Please take
-              care of this issue right away.
+              </ul>Attached is a picture of the problem. Please take care of
+              this issue right away.
               <p> Best regards,</p>
               <p> A concerned citizen</p>
-            </p>
+            </div>
           </div>
 
           <Link
@@ -87,7 +104,7 @@ class ReviewForm extends Component {
           <Link
             className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
             to="/thankyou"
-            onClick={this.updateNext}
+            onClick={this.sendEmail}
           >
             SUBMIT
           </Link>
@@ -114,10 +131,7 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  chooseSymptoms: symptoms => dispatch(actions.chooseSymptoms(symptoms)),
-  chooseLocation: location => dispatch(actions.chooseLocation(location)),
-  changeCategory: category => dispatch(actions.chooseCategory(category)),
-  changeSymptoms: category => dispatch(actions.renderSymptoms(category)),
+  emailSending: email => dispatch(actions.emailSending(email)),
   countPages: (page, direction) =>
     dispatch(actions.pageCounter(page, direction)),
   addToHistory: history => dispatch(actions.recordHistory(history))

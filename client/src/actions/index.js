@@ -4,8 +4,11 @@ import {
   FETCH_SYMPTOMS,
   SELECT_LOCATION,
   PAGE_COUNTER,
-  CHECK_HISTORY
-  } from './types';
+  CHECK_HISTORY,
+  SEND_EMAIL
+} from './types';
+
+import axios from 'axios';
 
 export const chooseCategory = category => {
   return { type: FETCH_CATEGORY, payload: category };
@@ -41,8 +44,18 @@ export const pageCounter = (counter, direction) => {
   }
 
   return { type: PAGE_COUNTER, payload: count };
-}
+};
 
 export const recordHistory = history => {
   return { type: CHECK_HISTORY, payload: history };
-}
+};
+
+export const emailSending = email => {
+  axios
+    .post('/api/send_email', email)
+    .then(res => console.log(res))
+    .catch(err => {
+      console.log('errorr while sending email', err);
+    });
+  return { type: SEND_EMAIL, payload: email };
+};

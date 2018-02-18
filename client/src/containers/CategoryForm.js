@@ -8,17 +8,38 @@ class CategoryForm extends Component {
     super(props);
 
     this.state = {
-      redirect: false
+      redirect: false,
+      redirectHome: false
     };
 
     this.selectCategory = this.selectCategory.bind(this);
   }
 
-  selectCategory(event) {
-    event.preventDefault();
-    const categorySelected = event.target.category.value;
+  componentDidMount() {
+    const properPath = 'home';
+    const prevPath = this.props.pathHistory;
+
+    if (
+      prevPath[0] !== properPath ||
+      this.props.page !== 1 ||
+      prevPath.length !== 1
+    ) {
+      this.setState({ redirectHome: true });
+    }
+  }
+
+  selectCategory(e) {
+    e.preventDefault();
+    const categorySelected = e.target.category.value;
     this.props.changeCategory(categorySelected);
     this.props.changeSymptoms(categorySelected);
+
+    this.props.countPages(this.props.page, 'next');
+
+    const newHistory = this.props.pathHistory;
+    newHistory.push('categories');
+    this.props.addToHistory(newHistory);
+
     this.setState({ redirect: true });
   }
 
@@ -51,6 +72,8 @@ class CategoryForm extends Component {
   render() {
     if (this.state.redirect) {
       return <Redirect to="/symptoms" />;
+    } else if (this.state.redirectHome) {
+      return <Redirect to="/" />;
     }
 
     return (
@@ -63,13 +86,18 @@ class CategoryForm extends Component {
   }
 }
 
-const mapStateToProps = ({ categories }) => ({
-  categories
+const mapStateToProps = ({ categories, page, pathHistory }) => ({
+  categories,
+  page,
+  pathHistory
 });
 
 const mapDispatchToProps = dispatch => ({
   changeCategory: category => dispatch(actions.chooseCategory(category)),
-  changeSymptoms: category => dispatch(actions.renderSymptoms(category))
+  changeSymptoms: category => dispatch(actions.renderSymptoms(category)),
+  countPages: (page, direction) =>
+    dispatch(actions.pageCounter(page, direction)),
+  addToHistory: history => dispatch(actions.recordHistory(history))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryForm);

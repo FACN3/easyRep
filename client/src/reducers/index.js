@@ -5,6 +5,8 @@ import locationReducer from './locationReducer';
 import symptomsReducer from './symptomsReducer';
 import chosenSymptomsReducer from './chosenSymptomsReducer';
 import fileReducer from './fileReducer';
+import pageCounterReducer from './pageCounterReducer';
+import historyReducer from './historyReducer';
 
 export default combineReducers({
   categories: categoryList,
@@ -12,5 +14,7 @@ export default combineReducers({
   location: locationReducer,
   symptoms: symptomsReducer,
   chosenSymptoms: chosenSymptomsReducer,
-  imageUrl: fileReducer
+  imageUrl: fileReducer,
+  page: pageCounterReducer,
+  pathHistory: historyReducer
 });

@@ -16,7 +16,26 @@ class UploadForm extends Component {
     };
 
     this.uploadFile = this.uploadFile.bind(this);
-    this.saveFile = this.saveFile.bind(this);
+    this.updateBack = this.updateBack.bind(this);
+    this.updateNext = this.updateNext.bind(this);
+
+  }
+
+  componentDidMount() {
+    const properPath = ['home', 'categories', 'symptoms', 'location'];
+    const prevPath = this.props.pathHistory;
+
+    const isExact = [prevPath].filter(idx => {
+      return prevPath[idx] !== properPath[idx];
+    });
+
+    if (
+      isExact.length !== 0 ||
+      this.props.page !== 4 ||
+      prevPath.length !== 4
+    ) {
+      this.setState({ redirectHome: true });
+    }
   }
 
   uploadFile(files) {
@@ -57,11 +76,24 @@ class UploadForm extends Component {
     });
   }
 
-  saveFile() {
+  updateBack() {
+    const newHistory = this.props.pathHistory;
+    newHistory.pop();
+    this.props.addToHistory(newHistory);
+    this.props.countPages(this.props.page, 'back');
+  }
+
+  updateNext() {
     if (this.state.imageUrl) {
       const url = this.state.imageUrl;
       this.props.saveFileUrl(url);
     }
+
+    this.props.countPages(this.props.page, 'next');
+
+    const newHistory = this.props.pathHistory;
+    newHistory.push('upload');
+    this.props.addToHistory(newHistory);
   }
 
   render() {
@@ -80,13 +112,14 @@ class UploadForm extends Component {
           <Link
             className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
             to="/location"
+            onClick={this.updateBack}
           >
             Back
           </Link>
           <Link
             className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
             to="/review"
-            onClick={this.saveFile}
+            onClick={this.updateNext}
           >
             Next
           </Link>
@@ -100,6 +133,9 @@ const mapStateToProps = ({ page, pathHistory }) => ({ page, pathHistory });
 
 const mapDispatchToProps = dispatch => ({
   saveFileUrl: url => dispatch(actions.saveFile(url)),
+  countPages: (page, direction) =>
+    dispatch(actions.pageCounter(page, direction)),
+  addToHistory: history => dispatch(actions.recordHistory(history))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UploadForm);

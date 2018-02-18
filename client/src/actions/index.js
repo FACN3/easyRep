@@ -3,8 +3,11 @@ import {
   CHOSEN_SYMPTOMS,
   FETCH_SYMPTOMS,
   SELECT_LOCATION,
-  SAVE_FILE
-} from './types';
+  SAVE_FILE,
+  PAGE_COUNTER,
+  CHECK_HISTORY
+  } from './types';
+
 
 export const chooseCategory = category => {
   return { type: FETCH_CATEGORY, payload: category };
@@ -29,3 +32,23 @@ export const renderSymptoms = category => {
 export const saveFile = fileUrl => {
   return { type: SAVE_FILE, payload: fileUrl };
 };
+
+export const pageCounter = (counter, direction) => {
+  let count;
+  switch (direction) {
+    case 'next':
+      count = counter + 1;
+      break;
+    case 'back':
+      count = counter - 1;
+      break;
+    default:
+      count = 0;
+  }
+
+  return { type: PAGE_COUNTER, payload: count };
+}
+
+export const recordHistory = history => {
+  return { type: CHECK_HISTORY, payload: history };
+}

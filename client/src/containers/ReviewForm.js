@@ -13,6 +13,7 @@ class ReviewForm extends Component {
 
     this.updateBack = this.updateBack.bind(this);
     this.updateNext = this.updateNext.bind(this);
+    this.listSymptoms = this.listSymptoms.bind(this);
   }
 
   componentDidMount() {
@@ -48,6 +49,12 @@ class ReviewForm extends Component {
     this.props.addToHistory(newHistory);
   }
 
+  listSymptoms(symptomList) {
+    return symptomList.map((singleSymptom, index) => {
+      return <li key={index}>{singleSymptom} </li>;
+    });
+  }
+
   render() {
     if (this.state.redirectHome) {
       return <Redirect to="/" />;
@@ -55,8 +62,21 @@ class ReviewForm extends Component {
     return (
       <div className="mw6 mw7-ns center ph3 ph3-ns">
         <div className="ph3">
-          <h2 className="white custom-font f3 tc">Review Report Page</h2>
-          <h3 className="white custom-font f5 tc">Under Construction</h3>
+          <div>
+            <p> Dear Mr. John Doe,</p>
+            <p>
+              I would like to report {this.props.category} hazard in{' '}
+              {this.props.location}.
+              <p>The inconveniences I am experiencing are: </p>
+              <ul className="symptomList">
+                {this.listSymptoms(this.props.chosenSymptoms)}
+              </ul>Joined to this email is a picture of the problem. Please take
+              care of this issue right away.
+              <p> Best regards,</p>
+              <p> A concerned citizen</p>
+            </p>
+          </div>
+
           <Link
             className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
             to="/upload"
@@ -77,9 +97,27 @@ class ReviewForm extends Component {
   }
 }
 
-const mapStateToProps = ({ page, pathHistory }) => ({ page, pathHistory });
+const mapStateToProps = ({
+  page,
+  pathHistory,
+  category,
+  chosenSymptoms,
+  symptoms,
+  location
+}) => ({
+  page,
+  pathHistory,
+  category,
+  symptoms,
+  location,
+  chosenSymptoms
+});
 
 const mapDispatchToProps = dispatch => ({
+  chooseSymptoms: symptoms => dispatch(actions.chooseSymptoms(symptoms)),
+  chooseLocation: location => dispatch(actions.chooseLocation(location)),
+  changeCategory: category => dispatch(actions.chooseCategory(category)),
+  changeSymptoms: category => dispatch(actions.renderSymptoms(category)),
   countPages: (page, direction) =>
     dispatch(actions.pageCounter(page, direction)),
   addToHistory: history => dispatch(actions.recordHistory(history))

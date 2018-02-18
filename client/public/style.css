@@ -22,6 +22,10 @@ ul {
   font-family: 'Arvo', serif;
 }
 
+.symptomList {
+  list-style-type: circle;
+}
+
 @media screen and (max-width: 375px) {
   .super-small {
     margin-left: 0;

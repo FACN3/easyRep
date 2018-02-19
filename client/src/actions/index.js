@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   FETCH_CATEGORY,
   CHOSEN_SYMPTOMS,
@@ -5,10 +6,9 @@ import {
   SELECT_LOCATION,
   PAGE_COUNTER,
   CHECK_HISTORY,
-  SEND_EMAIL
+  SEND_EMAIL,
+  CREATE_REPORT,
 } from './types';
-
-import axios from 'axios';
 
 export const chooseCategory = category => {
   return { type: FETCH_CATEGORY, payload: category };
@@ -58,4 +58,16 @@ export const emailSending = email => {
       console.log('errorr while sending email', err);
     });
   return { type: SEND_EMAIL, payload: email };
+};
+
+export const createReport = report => {
+  axios
+    .post('/api/create_report', report)
+    .then(res => {
+      console.log('this is from action', res);
+    })
+    .catch(err => {
+      console.log('errorr while sending email', err);
+    });
+  return { type: CREATE_REPORT, payload: report };
 };

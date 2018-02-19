@@ -28,7 +28,6 @@ module.exports = (req, res) => {
       res.status(500).send('Error in sending email', err);
     } else {
       res.send(response);
-      console.log(response);
     }
   });
 };

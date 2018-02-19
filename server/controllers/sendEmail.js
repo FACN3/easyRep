@@ -9,18 +9,18 @@ module.exports = (req, res) => {
     port: 25,
     auth: {
       user: process.env.EMAIL,
-      pass: process.env.MAIL_PASS
+      pass: process.env.MAIL_PASS,
     },
     tls: {
-      rejectUnauthorized: false
-    }
+      rejectUnauthorized: false,
+    },
   });
 
   const mailOptions = {
     from: process.env.EMAIL,
     to: process.env.EMAIL,
     subject: 'Reporting a hazard',
-    text: message
+    text: message,
   };
 
   transporter.sendMail(mailOptions, (err, response) => {
@@ -28,6 +28,7 @@ module.exports = (req, res) => {
       res.status(500).send('Error in sending email', err);
     } else {
       res.send(response);
+      console.log(response);
     }
   });
 };

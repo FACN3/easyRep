@@ -8,12 +8,13 @@ import LocationForm from './containers/LocationForm';
 import UploadForm from './containers/UploadForm';
 import ReviewForm from './containers/ReviewForm';
 import ThankYou from './components/ThankYou';
-
+import Login from './components/Login';
 
 const App = () => {
   return (
     <BrowserRouter>
       <div>
+        <Route exact path="/login" component={Login} />
         <Navbar />
         <Route exact path="/" component={Landing} />
         <Route exact path="/categories" component={CategoryForm} />

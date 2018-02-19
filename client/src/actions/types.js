@@ -4,3 +4,4 @@ export const CHOSEN_SYMPTOMS = 'CHOSEN_SYMPTOMS';
 export const FETCH_SYMPTOMS = 'FETCH_SYMPTOMS';
 export const PAGE_COUNTER = 'PAGE_COUNTER';
 export const CHECK_HISTORY = 'CHECK_HISTORY';
+export const LOGIN = 'LOGIN';

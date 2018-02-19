@@ -4,7 +4,8 @@ import {
   FETCH_SYMPTOMS,
   SELECT_LOCATION,
   PAGE_COUNTER,
-  CHECK_HISTORY
+  CHECK_HISTORY,
+  LOGIN
   } from './types';
 
 export const chooseCategory = category => {
@@ -45,4 +46,8 @@ export const pageCounter = (counter, direction) => {
 
 export const recordHistory = history => {
   return { type: CHECK_HISTORY, payload: history };
+}
+
+export const authLogin = user => {
+  return { type: LOGIN, payload: token };
 }

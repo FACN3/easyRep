@@ -1,16 +1,13 @@
 require('env2')('config.env');
-// const keys = require('./config/keys');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const mongoose = require('mongoose');
 const passport = require('passport');
-const FacebookStrategy = require('passport-facebook');
 const logger = require('morgan');
 const reportRouter = require('./routes/reportRoutes');
 const authRouter = require('./routes/authRoutes');
-require('./models/Users');
 require('./services/passport');
 
 const app = express();
@@ -25,7 +22,8 @@ app.use(bodyParser.json());
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: 'secret'
+    keys: ['secret'],
+    name: 'EasyRep'
   })
 );
 

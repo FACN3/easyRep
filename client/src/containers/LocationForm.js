@@ -5,6 +5,7 @@ import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import * as actions from '../actions';
 import { locationdata } from '../location_data';
+import Navbar from '../components/Navbar';
 
 class LocationForm extends Component {
   constructor(props) {
@@ -78,6 +79,8 @@ class LocationForm extends Component {
     }
 
     return (
+      <div className="w-100">
+        <Navbar />
       <div className="ph3 pv4 tc">
         <form onSubmit={this.handleSubmit} className="mw7 center pa4 br2-ns">
           <label className="f3">Choose your location</label>
@@ -110,6 +113,7 @@ class LocationForm extends Component {
           </div>
         </form>
       </div>
+    </div>
     );
   }
 }

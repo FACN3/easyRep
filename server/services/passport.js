@@ -1,20 +1,8 @@
 require('env2')('config.env');
-// const keys = require('../config/keys');
 const passport = require('passport');
-const FacebookStrategy = require('passport-facebook');
-const mongoose = require('mongoose');
+const FacebookStrategy = require('passport-facebook').Strategy;
 
-const User = mongoose.model('user');
-
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser((id, done) => {
-  User.findById(id).then(user => {
-    done(null, user);
-  });
-});
+const User = require('../models/Users');
 
 passport.use(
   new FacebookStrategy(
@@ -22,10 +10,10 @@ passport.use(
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
       callbackURL: '/auth/facebook/callback',
+      profileFields: ['email', 'profileUrl', 'displayName', 'picture.type(small)'],
       proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
-      console.log('accessToken:', accessToken, 'refreshToken:', refreshToken);
       User.findOne({ strategy: profile.provider, auth_id: profile.id }).then(
         existingUser => {
           if (existingUser) {
@@ -39,3 +27,13 @@ passport.use(
     }
   )
 );
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => {
+    done(null, user);
+  });
+});

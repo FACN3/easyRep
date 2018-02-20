@@ -4,11 +4,9 @@ import {
   FETCH_SYMPTOMS,
   SELECT_LOCATION,
   PAGE_COUNTER,
-  CHECK_HISTORY,
-  FETCH_USER
+  CHECK_HISTORY
   } from './types';
 
-import axios from 'axios';
 
 export const chooseCategory = category => {
   return { type: FETCH_CATEGORY, payload: category };
@@ -49,10 +47,3 @@ export const pageCounter = (counter, direction) => {
 export const recordHistory = history => {
   return { type: CHECK_HISTORY, payload: history };
 }
-
-export const fetchUser = () => {
-  axios.get('/auth/current_user').then(res => {
-    console.log(res.headers);
-    return { type: FETCH_USER, payload: res.headers }
-  });
-};

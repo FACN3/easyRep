@@ -6,7 +6,6 @@ import symptomsReducer from './symptomsReducer';
 import chosenSymptomsReducer from './chosenSymptomsReducer';
 import pageCounterReducer from './pageCounterReducer';
 import historyReducer from './historyReducer';
-import authReducer from './authReducer';
 
 export default combineReducers({
   categories: categoryList,
@@ -15,6 +14,5 @@ export default combineReducers({
   symptoms: symptomsReducer,
   chosenSymptoms: chosenSymptomsReducer,
   page: pageCounterReducer,
-  pathHistory: historyReducer,
-  auth: authReducer
+  pathHistory: historyReducer
 });

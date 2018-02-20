@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import Navbar from '../components/Navbar';
 
 class UploadForm extends Component {
   constructor(props) {
@@ -49,6 +50,8 @@ class UploadForm extends Component {
 
   render() {
     return (
+      <div className="w-100">
+        <Navbar />
       <div className="mw6 mw7-ns center ph3 ph3-ns">
         <div className="ph3">
           <h2 className="custom-font f3 tc">Upload Media Page</h2>
@@ -69,6 +72,7 @@ class UploadForm extends Component {
           </Link>
         </div>
       </div>
+    </div>
     );
   }
 }

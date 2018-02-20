@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import proud from '../icons/proud.gif';
+import Navbar from '../components/Navbar';
 
 class ThankYou extends Component {
 

@@ -7,6 +7,7 @@ import chosenSymptomsReducer from './chosenSymptomsReducer';
 import pageCounterReducer from './pageCounterReducer';
 import historyReducer from './historyReducer';
 import emailSending from './emailSending';
+import handlingError from './handlingError';
 
 export default combineReducers({
   categories: categoryList,
@@ -16,5 +17,6 @@ export default combineReducers({
   chosenSymptoms: chosenSymptomsReducer,
   page: pageCounterReducer,
   pathHistory: historyReducer,
-  emailSending: emailSending
+  emailSending: emailSending,
+  errorMessage: handlingError
 });

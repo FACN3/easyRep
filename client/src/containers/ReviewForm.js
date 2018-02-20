@@ -75,9 +75,11 @@ class ReviewForm extends Component {
       .post('/api/send_email', email)
       .then(res => {
         this.props.emailSending(res.data);
+        this.props.history.push('/thankyou');
       })
       .catch(err => {
-        console.log('errorr while sending email', err);
+        this.props.handlingError('Could not send email successfully');
+        this.props.history.push('/error');
       });
 
     this.updateNext();
@@ -94,6 +96,7 @@ class ReviewForm extends Component {
     if (this.state.redirectHome) {
       return <Redirect to="/" />;
     }
+
     return (
       <div className="mw6 mw7-ns center ph3 ph3-ns">
         <div className="ph3">
@@ -119,13 +122,12 @@ class ReviewForm extends Component {
           >
             Back
           </Link>
-          <Link
+          <button
             className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
-            to="/thankyou"
             onClick={this.sendEmail}
           >
             SUBMIT
-          </Link>
+          </button>
         </div>
       </div>
     );
@@ -150,6 +152,7 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = dispatch => ({
   emailSending: email => dispatch(actions.emailSending(email)),
+  handlingError: error => dispatch(actions.handlingError(error)),
   countPages: (page, direction) =>
     dispatch(actions.pageCounter(page, direction)),
   addToHistory: history => dispatch(actions.recordHistory(history))

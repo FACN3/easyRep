@@ -5,7 +5,8 @@ import {
   SELECT_LOCATION,
   PAGE_COUNTER,
   CHECK_HISTORY,
-  SEND_EMAIL
+  SEND_EMAIL,
+  ERROR_MESSAGE
 } from './types';
 
 export const chooseCategory = category => {
@@ -50,4 +51,8 @@ export const recordHistory = history => {
 
 export const emailSending = email => {
   return { type: SEND_EMAIL, payload: email };
+};
+
+export const handlingError = error => {
+  return { type: ERROR_MESSAGE, payload: error };
 };

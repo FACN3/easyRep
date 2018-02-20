@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import { locationdata } from '../location_data';
 
 class ReviewForm extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class ReviewForm extends Component {
     this.updateNext = this.updateNext.bind(this);
     this.sendEmail = this.sendEmail.bind(this);
     this.listSymptoms = this.listSymptoms.bind(this);
+    this.renderAuthorityName = this.renderAuthorityName.bind(this);
   }
 
   componentDidMount() {
@@ -59,7 +61,7 @@ class ReviewForm extends Component {
   sendEmail() {
     const { category, location, chosenSymptoms } = this.props;
 
-    const emailText = `Dear Mr. John Doe, I would like to report ${
+    const emailText = `Dear ${this.renderAuthorityName()}, I would like to report ${
       category
     } hazard in ${location}.
         The inconveniences I am experiencing are: ${chosenSymptoms}.
@@ -72,6 +74,13 @@ class ReviewForm extends Component {
     this.updateNext();
   }
 
+  renderAuthorityName() {
+    const locationObject = locationdata.filter(
+      data => data.value == this.props.location
+    );
+    return locationObject[0].name;
+  }
+
   render() {
     if (this.state.redirectHome) {
       return <Redirect to="/" />;
@@ -80,7 +89,7 @@ class ReviewForm extends Component {
       <div className="mw6 mw7-ns center ph3 ph3-ns">
         <div className="ph3">
           <div>
-            <p> Dear Mr. John Doe,</p>
+            <p> Dear {this.renderAuthorityName()}</p>
             <div>
               I would like to report {this.props.category} hazard in{' '}
               {this.props.location}.

@@ -81,3 +81,5 @@ typings/
 .env
 
 *.swp
+
+/client/src/config/dev.js

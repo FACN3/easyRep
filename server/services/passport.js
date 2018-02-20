@@ -20,12 +20,12 @@ passport.use(
       proxy: true,
     },
     (accessToken, refreshToken, profile, done) => {
-      User.findOne({ strategy: profile.provider, auth_id: profile.id }).then(
+      User.findOne({ strategy: profile.provider, auth_id: profile.id, name: profile.displayName }).then(
         existingUser => {
           if (existingUser) {
             return done(null, existingUser);
           }
-          new User({ strategy: profile.provider, auth_id: profile.id })
+          new User({ strategy: profile.provider, auth_id: profile.id, name: profile.displayName })
             .save()
             .then(user => done(null, user));
         }

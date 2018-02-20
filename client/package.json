@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.17.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
@@ -21,8 +22,8 @@
     "eject": "react-scripts eject"
   },
   "proxy": {
-    "target": {
-      "/auth/facebook": "http://localhost:5000"
+    "/auth/*": {
+      "target": "http://localhost:5000"
     }
   }
 }

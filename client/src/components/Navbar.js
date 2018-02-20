@@ -1,7 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * from actions from '../actions';
+import * as actions from '../actions';
 
 
 class Navbar extends Component {
@@ -9,24 +8,30 @@ class Navbar extends Component {
     super(props);
 
     this.state = {};
+
+    this.sendUser = this.sendUser.bind(this);
   }
-  
+  sendUser(e) {
+    // e.preventDefault();
+    this.props.fetchUser();
+  }
   render() {
     return (
       <header className=" viewReportButton pv3 pv3-ns ph4-m ph5-l">
         <nav className="f6 fw6 tc">
-          <Link className=" f4 link br3 ph3 white"
-            to="/login"
+          <a className=" f4 link br3 ph3 white"
+            href="/auth/current_user"
             >
             View Reports
-          </Link>
+          </a>
         </nav>
       </header>
     );
   }
 };
 
-mapDispatchToProps = dispatch => ({
-  sendLogin: user =>
+const mapDispatchToProps = dispatch => ({
+  fetchUser: () => dispatch(actions.fetchUser())
 })
-export default Navbar;
+
+export default connect(null, mapDispatchToProps)(Navbar);

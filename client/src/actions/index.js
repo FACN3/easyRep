@@ -5,8 +5,10 @@ import {
   SELECT_LOCATION,
   PAGE_COUNTER,
   CHECK_HISTORY,
-  LOGIN
+  FETCH_USER
   } from './types';
+
+import axios from 'axios';
 
 export const chooseCategory = category => {
   return { type: FETCH_CATEGORY, payload: category };
@@ -48,6 +50,9 @@ export const recordHistory = history => {
   return { type: CHECK_HISTORY, payload: history };
 }
 
-export const authLogin = user => {
-  return { type: LOGIN, payload: token };
-}
+export const fetchUser = () => {
+  axios.get('/auth/current_user').then(res => {
+    console.log(res.headers);
+    return { type: FETCH_USER, payload: res.headers }
+  });
+};

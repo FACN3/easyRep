@@ -9,13 +9,15 @@ import UploadForm from './containers/UploadForm';
 import ReviewForm from './containers/ReviewForm';
 import ThankYou from './components/ThankYou';
 import Login from './components/Login';
+import ViewReports from './components/ViewReports';
 
 const App = () => {
   return (
     <BrowserRouter>
       <div>
-        <Route exact path="/login" component={Login} />
         <Navbar />
+        <Route exact path="/login" component={Login} />
+        <Route path="/viewreports" component={ViewReports} />
         <Route exact path="/" component={Landing} />
         <Route exact path="/categories" component={CategoryForm} />
         <Route exact path="/location" component={LocationForm} />

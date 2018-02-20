@@ -8,8 +8,12 @@ authRouter.get('/facebook', passport.authenticate('facebook',
 
 authRouter.get('/facebook/callback', passport.authenticate('facebook'),
   (req, res) => {
-    res.send('success!');
+    res.redirect('/viewreports');
 });
 
+authRouter.get('/current_user', (req, res) => {
+  console.log(req.headers);
+    res.send(req.headers);
+});
 
 module.exports = authRouter;

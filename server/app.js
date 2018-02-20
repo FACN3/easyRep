@@ -1,4 +1,5 @@
 require('env2')('config.env');
+// const keys = require('./config/keys');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -10,8 +11,7 @@ const logger = require('morgan');
 const reportRouter = require('./routes/reportRoutes');
 const authRouter = require('./routes/authRoutes');
 require('./models/Users');
-
-const User = mongoose.model('user');
+require('./services/passport');
 
 const app = express();
 
@@ -22,38 +22,15 @@ app.use(logger('dev'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: 'secret'
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser((id, done) => {
-  User.findById(id).then(user => {
-    done(null, user);
-  });
-});
-
-passport.use(
-  new FacebookStrategy(
-    {
-    clientID: process.env.FACEBOOK_APP_ID,
-    clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: "http://localhost:5000/auth/facebook/callback",
-    proxy: true
-    },
-    async (accessToken, refreshToken, profile, done) => {
-      const existingUser = await User.findOne({strategy: profile.provider, auth_id: profile.id });
-      if (existingUser) {
-        return done(null, existingUser);
-      }
-      const user = await new User({strategy: profile.provider, auth_id: profile.id}).save();
-      done(null, user);
-  }
- )
-);
 
 mongoose.connect(process.env.MONGO_URL);
 

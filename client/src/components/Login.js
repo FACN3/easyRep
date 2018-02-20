@@ -13,6 +13,13 @@ const Login = () => {
           </a>
         </div>
         <div className="tc pt3">
+          <a className="dib f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 orange bg-white ba"
+            href="/auth/google"
+            >
+            Login With Google
+          </a>
+        </div>
+        <div className="tc pt3">
           <a
             className="ttu tracked f6 dib dim fw6 link br3 ph3 pv2 mb4 orange bg-white ba"
             href="/"

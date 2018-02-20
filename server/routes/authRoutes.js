@@ -12,6 +12,16 @@ authRouter.get('/facebook/callback', passport.authenticate('facebook'),
     res.redirect('/viewreports');
 });
 
+authRouter.get('/google', passport.authenticate('google',
+    { scope: ['email'] }
+  )
+);
+
+authRouter.get('/google/callback', passport.authenticate('google'),
+  (req, res) => {
+    res.redirect('/viewreports');
+});
+
 authRouter.get('/current_user', requireLogin, (req, res) => {
     res.redirect('/viewreports');
 });

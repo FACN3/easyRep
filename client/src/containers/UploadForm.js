@@ -71,8 +71,7 @@ class UploadForm extends Component {
       }
 
       this.setState({ imageUrl: res.body.url });
-      console.log('Upload Successful', JSON.stringify(res.body.url));
-      console.log('State:', this.state);
+      
     });
   }
 

@@ -78,15 +78,12 @@ class LocationForm extends Component {
     }
 
     return (
-      <div className="ph3 pv4">
-        <form
-          onSubmit={this.handleSubmit}
-          className="bg-orange mw7 center pa4 br2-ns ba b--black-10"
-        >
-          <label className="f3 white">Location</label>
+      <div className="ph3 pv4 tc">
+        <form onSubmit={this.handleSubmit} className="mw7 center pa4 br2-ns">
+          <label className="f3">Choose your location</label>
           <div className="cf">
             <Select
-              className="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns"
+              className="input-reset pa3 br2-ns br--left-ns tc"
               placeholder="Choose your city/town"
               id="city"
               required
@@ -96,16 +93,16 @@ class LocationForm extends Component {
               options={locationdata}
             />
           </div>
-          <div className="mw7 center pa4 flex items-center justify-center">
+          <div className="ph3 pv4">
             <Link
+              className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl ba"
               to="/symptoms"
-              className="f4 link dim br-pill bg-green washed-green no-underline b--orange ba grow pv2 ph3 dib mr4"
               onClick={this.updateBack}
             >
               Back
             </Link>
             <button
-              className="f4 link dim br-pill bg-green washed-green no-underline b--orange ba grow pv2 ph3 dib ml4"
+              className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr ba"
               type="submit"
             >
               Next

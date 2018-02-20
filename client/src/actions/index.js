@@ -3,11 +3,13 @@ import {
   CHOSEN_SYMPTOMS,
   FETCH_SYMPTOMS,
   SELECT_LOCATION,
+  SAVE_FILE,
   PAGE_COUNTER,
   CHECK_HISTORY,
   SEND_EMAIL,
   ERROR_MESSAGE
 } from './types';
+
 
 export const chooseCategory = category => {
   return { type: FETCH_CATEGORY, payload: category };
@@ -27,6 +29,10 @@ export const chooseSymptoms = symptoms => {
 
 export const renderSymptoms = category => {
   return { type: FETCH_SYMPTOMS, payload: category };
+};
+
+export const saveFile = fileUrl => {
+  return { type: SAVE_FILE, payload: fileUrl };
 };
 
 export const pageCounter = (counter, direction) => {

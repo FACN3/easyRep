@@ -100,6 +100,7 @@ class ReviewForm extends Component {
     return (
       <div className="mw6 mw7-ns center ph3 ph3-ns">
         <div className="ph3">
+
           <div>
             <p> Dear {this.renderEmail()}</p>
             <div>
@@ -114,6 +115,7 @@ class ReviewForm extends Component {
               <p> A concerned citizen</p>
             </div>
           </div>
+
 
           <Link
             className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"

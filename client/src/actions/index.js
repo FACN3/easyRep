@@ -8,8 +8,6 @@ import {
   SEND_EMAIL
 } from './types';
 
-import axios from 'axios';
-
 export const chooseCategory = category => {
   return { type: FETCH_CATEGORY, payload: category };
 };
@@ -51,11 +49,5 @@ export const recordHistory = history => {
 };
 
 export const emailSending = email => {
-  axios
-    .post('/api/send_email', email)
-    .then(res => console.log(res))
-    .catch(err => {
-      console.log('errorr while sending email', err);
-    });
   return { type: SEND_EMAIL, payload: email };
 };

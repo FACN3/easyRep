@@ -142,7 +142,7 @@ class ReviewForm extends Component {
   }
 }
 
-const mapStateToProps = ({
+const mapStateToProps = () => ({
   page,
   imageUrl,
   pathHistory,

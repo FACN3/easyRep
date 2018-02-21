@@ -5,6 +5,9 @@
   "proxy": {
     "/api/*": {
       "target": "http://localhost:5000"
+    },
+    "/auth/*": {
+      "target": "http://localhost:5000"
     }
   },
   "dependencies": {
@@ -28,10 +31,5 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "proxy": {
-    "/auth/*": {
-      "target": "http://localhost:5000"
-    }
   }
 }

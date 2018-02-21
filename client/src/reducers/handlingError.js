@@ -1,8 +1,8 @@
-import { CHECK_HISTORY } from '../actions/types';
+import { ERROR_MESSAGE } from '../actions/types';
 
 export default (state = {}, action = {}) => {
   switch (action.type) {
-    case CHECK_HISTORY:
+    case ERROR_MESSAGE:
       return action.payload;
     default:
       return state;

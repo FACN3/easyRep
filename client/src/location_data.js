@@ -1,4 +1,10 @@
 exports.locationdata = [
+  {
+    label: 'Abu Snan',
+    value: 'Abu Snan',
+    email: 'Abu-snan@iula.org.il',
+    name: 'Ahmad Rabea'
+  },
   { label: 'Acre', value: 'Acre' },
   { label: 'Afula', value: 'Afula' },
   { label: 'Arad', value: 'Arad' },
@@ -10,6 +16,12 @@ exports.locationdata = [
   { label: 'Beit Shean', value: 'Beit Shean' },
   { label: 'Beit Shemesh', value: 'Beit Shemesh' },
   { label: 'Beitar Illit', value: 'Beitar Illit' },
+  {
+    label: '  Bir al-Maksur',
+    value: '  Bir al-Maksur',
+    email: 'Helana.g1@gmail.com',
+    name: 'Helana'
+  },
   { label: 'Bnei Brak', value: 'Bnei Brak' },
   { label: 'Dimona', value: 'Dimona' },
   { label: 'Eilat', value: 'Eilat' },
@@ -21,6 +33,13 @@ exports.locationdata = [
   { label: 'Herzliya', value: 'Herzliya' },
   { label: 'Hod HaSharon', value: 'Hod HaSharon' },
   { label: 'Holon', value: 'Holon' },
+  {
+    label: 'Iksal',
+    value: 'Iksal',
+    email: 'Abed_d@iula.org.il',
+    name: 'Abed Mahmud'
+  },
+
   { label: 'Jerusalem', value: 'Jerusalem' },
   { label: 'Karmiel', value: 'Karmiel' },
   { label: 'Kiryat Ata', value: 'Kiryat Ata' },
@@ -62,6 +81,5 @@ exports.locationdata = [
   { label: 'Tirat Carmel', value: 'Tirat Carmel' },
   { label: 'Yavne', value: 'Yavne' },
   { label: 'Yehud-Monosson', value: 'Yehud-Monosson' },
-  { label: 'Yokneam', value: 'Yokneam' },
+  { label: 'Yokneam', value: 'Yokneam' }
 ];
-

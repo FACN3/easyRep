@@ -5,3 +5,7 @@ export const FETCH_SYMPTOMS = 'FETCH_SYMPTOMS';
 export const SAVE_FILE = 'SAVE_FILE';
 export const PAGE_COUNTER = 'PAGE_COUNTER';
 export const CHECK_HISTORY = 'CHECK_HISTORY';
+export const SEND_EMAIL = 'SEND_EMAIL';
+export const CREATE_REPORT = 'CREATE_REPORT';
+export const ERROR_MESSAGE = 'ERROR_MESSAGE';
+

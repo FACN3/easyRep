@@ -5,7 +5,7 @@ const reportsSchema = new Schema({
   report_type: String,
   location: String,
   effects: String,
-  picture: { data: Buffer, contentType: String },
+  imageUrl: String,
   user_id: String,
 });
 

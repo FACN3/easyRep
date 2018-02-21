@@ -7,6 +7,9 @@ import chosenSymptomsReducer from './chosenSymptomsReducer';
 import fileReducer from './fileReducer';
 import pageCounterReducer from './pageCounterReducer';
 import historyReducer from './historyReducer';
+import emailSending from './emailSending';
+import create_reportReducer from './create_reportReducer';
+import handlingError from './handlingError';
 
 export default combineReducers({
   categories: categoryList,
@@ -16,5 +19,8 @@ export default combineReducers({
   chosenSymptoms: chosenSymptomsReducer,
   imageUrl: fileReducer,
   page: pageCounterReducer,
-  pathHistory: historyReducer
+  pathHistory: historyReducer,
+  emailSending: emailSending,
+  createReport: create_reportReducer,
+  errorMessage: handlingError,
 });

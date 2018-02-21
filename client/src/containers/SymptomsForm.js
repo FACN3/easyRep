@@ -101,7 +101,7 @@ class SymptomsForm extends Component {
         </form>
         <div className="ph3">
           <Link
-            className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
+            className="ba f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
             onClick={this.updateBack}
             to="/categories"
           >

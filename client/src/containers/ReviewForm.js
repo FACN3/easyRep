@@ -108,9 +108,10 @@ class ReviewForm extends Component {
         <Navbar />
       <div className="mw6 mw7-ns center ph3 ph3-ns">
         <div className="ph3">
-          <div>
+          <h3 className="tc pt2">Here is the content of the email we will send.</h3>
+          <div >
+            <div className=" mw6-ns mv4 ph2 ph5-ns tj pv1 ml6-ns">
             <p> Dear {this.renderEmail()}</p>
-            <div>
               I would like to report {this.props.category} hazard in {this.props.location}.
               <p>The inconveniences I am experiencing are: </p>
               <ul className="symptomList">
@@ -122,14 +123,14 @@ class ReviewForm extends Component {
           </div>
 
           <Link
-            className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
+            className="ba f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
             to="/upload"
             onClick={this.updateBack}
           >
             Back
           </Link>
           <button
-            className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
+            className="ba f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
             onClick={this.sendEmail}
           >
             SUBMIT

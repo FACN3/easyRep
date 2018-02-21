@@ -1,5 +1,5 @@
-const nodemailer = require('nodemailer');
 require('env2')('./config.env');
+const nodemailer = require('nodemailer');
 
 module.exports = (req, res) => {
   const message = req.body.email;

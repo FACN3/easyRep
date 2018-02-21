@@ -119,8 +119,9 @@ class ReviewForm extends Component {
               </ul>Attached is a picture of the problem. Please take care of this issue right away.
               <p> Best regards,</p>
               <p> A concerned citizen</p>
+
             </div>
-          </div>
+
 
           <Link
             className="ba f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
@@ -135,9 +136,9 @@ class ReviewForm extends Component {
           >
             SUBMIT
           </button>
+
         </div>
       </div>
-    </div>
     );
   }
 }

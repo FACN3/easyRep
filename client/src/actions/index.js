@@ -9,6 +9,7 @@ import {
   SEND_EMAIL,
   CREATE_REPORT,
   ERROR_MESSAGE,
+  VIEW_REPORTS
 } from './types';
 
 export const chooseCategory = category => {
@@ -65,4 +66,8 @@ export const createReport = report => {
 
 export const handlingError = error => {
   return { type: ERROR_MESSAGE, payload: error };
+};
+
+export const viewReports = viewReports => {
+  return { type: VIEW_REPORTS, payload: viewReports };
 };

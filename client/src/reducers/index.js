@@ -10,6 +10,7 @@ import historyReducer from './historyReducer';
 import emailSending from './emailSending';
 import create_reportReducer from './create_reportReducer';
 import handlingError from './handlingError';
+import viewReportsReducer from './viewReportsReducer';
 
 export default combineReducers({
   categories: categoryList,
@@ -23,4 +24,5 @@ export default combineReducers({
   emailSending: emailSending,
   createReport: create_reportReducer,
   errorMessage: handlingError,
+  reports: viewReportsReducer
 });

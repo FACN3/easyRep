@@ -11,7 +11,7 @@ class ReviewForm extends Component {
     super(props);
 
     this.state = {
-      redirectHome: false,
+      redirectHome: false
     };
 
     this.updateBack = this.updateBack.bind(this);
@@ -29,7 +29,11 @@ class ReviewForm extends Component {
       return prevPath[idx] !== properPath[idx];
     });
 
-    if (isExact.length !== 0 || this.props.page !== 5 || prevPath.length !== 5) {
+    if (
+      isExact.length !== 0 ||
+      this.props.page !== 5 ||
+      prevPath.length !== 5
+    ) {
       this.setState({ redirectHome: true });
     }
   }
@@ -61,7 +65,9 @@ class ReviewForm extends Component {
     const effects = chosenSymptoms.join(',');
     const report = { location, report_type: category, effects, imageUrl };
 
-    const emailText = `Dear ${this.renderEmail()}, I would like to report ${category} hazard in ${location}.
+    const emailText = `Dear ${this.renderEmail()}, I would like to report ${
+      category
+    } hazard in ${location}.
         The inconveniences I am experiencing are: ${chosenSymptoms}.
         Attached is a picture of the problem. Please take care of this issue right away.
         Best regards,
@@ -94,7 +100,9 @@ class ReviewForm extends Component {
   }
 
   renderEmail() {
-    const locationObject = locationdata.filter(data => data.value === this.props.location);
+    const locationObject = locationdata.filter(
+      data => data.value === this.props.location
+    );
     return locationObject[0].name;
   }
 
@@ -111,12 +119,13 @@ class ReviewForm extends Component {
             <div>
               <p> Dear {this.renderEmail()}</p>
               <div>
-                I would like to report {this.props.category} hazard in {this.props.location}.
+                I would like to report {this.props.category} hazard in{' '}
+                {this.props.location}.
                 <p>The inconveniences I am experiencing are: </p>
                 <ul className="symptomList">
                   {this.listSymptoms(this.props.chosenSymptoms)}
-                </ul>Attached is a picture of the problem. Please take care of this issue right
-                away.
+                </ul>Attached is a picture of the problem. Please take care of
+                this issue right away.
                 <p> Best regards,</p>
                 <p> A concerned citizen</p>
               </div>
@@ -149,7 +158,7 @@ const mapStateToProps = ({
   category,
   chosenSymptoms,
   symptoms,
-  location,
+  location
 }) => ({
   page,
   imageUrl,
@@ -157,15 +166,16 @@ const mapStateToProps = ({
   category,
   symptoms,
   location,
-  chosenSymptoms,
+  chosenSymptoms
 });
 
 const mapDispatchToProps = dispatch => ({
   emailSending: email => dispatch(actions.emailSending(email)),
   createReport: report => dispatch(actions.createReport(report)),
   handlingError: error => dispatch(actions.handlingError(error)),
-  countPages: (page, direction) => dispatch(actions.pageCounter(page, direction)),
-  addToHistory: history => dispatch(actions.recordHistory(history)),
+  countPages: (page, direction) =>
+    dispatch(actions.pageCounter(page, direction)),
+  addToHistory: history => dispatch(actions.recordHistory(history))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewForm);

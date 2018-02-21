@@ -6,7 +6,7 @@ const reportsSchema = new Schema({
   location: String,
   effects: String,
   imageUrl: String,
-  user_id: String,
+  user_id: String
 });
 
 module.exports = mongoose.model('report', reportsSchema);

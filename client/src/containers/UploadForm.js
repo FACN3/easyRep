@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import sha1 from 'sha1';
-import axios from 'superagent';
+import superagent from 'superagent';
 import Dropzone from 'react-dropzone';
 import keys from '../config/keys';
 

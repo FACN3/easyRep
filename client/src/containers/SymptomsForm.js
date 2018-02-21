@@ -95,28 +95,29 @@ class SymptomsForm extends Component {
     return (
       <div className="w-100">
         <Navbar />
-      <div className="mw6 mw7-ns center ph3 ph3-ns">
-        <form className="pv3 pv4-ns ml4 pl4-ns">
-          {this.renderSymptoms(this.props.category)}
-        </form>
-        <div className="ph3">
-          <Link
-            className="ba f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
-            onClick={this.updateBack}
-            to="/categories"
-          >
-            Back
-          </Link>
-          <Link
-            className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr ba"
-            onClick={this.sendSymptoms}
-            to="/location"
-          >
-            Next
-          </Link>
+        <div className="mw6 mw7-ns center ph3 ph3-ns">
+          <form className="pv3 pv4-ns ml4 pl4-ns">
+            {this.renderSymptoms(this.props.category)}
+          </form>
+          <div className="ph3">
+            <Link
+              className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
+              onClick={this.updateBack}
+              to="/categories"
+            >
+              Back
+            </Link>
+            <Link
+              className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr ba"
+              onClick={this.sendSymptoms}
+              to="/location"
+            >
+              Next
+            </Link>
+          </div>
+
         </div>
       </div>
-    </div>
     );
   }
 }

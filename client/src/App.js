@@ -8,7 +8,7 @@ import UploadForm from './containers/UploadForm';
 import ReviewForm from './containers/ReviewForm';
 import ThankYou from './components/ThankYou';
 import Login from './components/Login';
-import ViewReports from './components/ViewReports';
+import ViewReports from './containers/ViewReports';
 import ErrorMessage from './components/ErrorMessage';
 
 const App = () => {

@@ -130,6 +130,11 @@ ul {
   transform: rotate(45deg);
 }
 
+
+.listIteminViewReport {
+  overflow-y: auto;
+  height: 600px;
+
 .dropzone {
   aria-disabled: "false";
   width: 10rem;

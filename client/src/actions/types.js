@@ -8,4 +8,4 @@ export const CHECK_HISTORY = 'CHECK_HISTORY';
 export const SEND_EMAIL = 'SEND_EMAIL';
 export const CREATE_REPORT = 'CREATE_REPORT';
 export const ERROR_MESSAGE = 'ERROR_MESSAGE';
-
+export const VIEW_REPORTS = 'VIEW_REPORTS';

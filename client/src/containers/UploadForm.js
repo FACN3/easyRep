@@ -7,6 +7,7 @@ import superagent from 'superagent';
 import Dropzone from 'react-dropzone';
 import keys from '../config/keys';
 import uploadIcon from '../icons/Cloud_Upload.png';
+import Navbar from '../components/Navbar';
 
 class UploadForm extends Component {
   constructor(props) {
@@ -61,11 +62,12 @@ class UploadForm extends Component {
 
     uploadRequest.end((err, res) => {
       if (err) {
-        alert(err);
+        this.props.handlingError('Could not upload image succesfully');
+        this.props.history.push('/error');
         return;
       }
-
       this.setState({ imageUrl: res.body.url });
+
     });
   }
 
@@ -91,6 +93,8 @@ class UploadForm extends Component {
 
   render() {
     return (
+      <div className="w-100">
+        <Navbar />
       <div className="mw6 mw7-ns center ph3 ph3-ns">
         <div className="ph3 pv4 pv3-ns center">
           <div className="mw5 mw5-ns pv3 ph1 center">
@@ -123,6 +127,7 @@ class UploadForm extends Component {
         </div>
         </div>
       </div>
+    </div>
     );
   }
 }
@@ -130,6 +135,7 @@ class UploadForm extends Component {
 const mapStateToProps = ({ page, pathHistory }) => ({ page, pathHistory });
 
 const mapDispatchToProps = dispatch => ({
+  handlingError: error => dispatch(actions.handlingError(error)),
   saveFileUrl: url => dispatch(actions.saveFile(url)),
   countPages: (page, direction) => dispatch(actions.pageCounter(page, direction)),
   addToHistory: history => dispatch(actions.recordHistory(history)),

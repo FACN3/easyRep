@@ -19,6 +19,7 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "sha1": "^1.1.1",
+    "superagent": "^3.8.2",
     "tachyons": "^4.9.1",
     "tachyons-cli": "^1.2.0"
   },
@@ -27,5 +28,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "proxy": {
+    "/auth/*": {
+      "target": "http://localhost:5000"
+    }
   }
 }

@@ -1,26 +1,26 @@
-const router = require('express').Router();
+const authRouter = require('express').Router();
 const passport = require('passport');
 const requireLogin = require('../middlewares/requireLogin');
 
-router.get('/facebook', passport.authenticate('facebook', { scope: ['email'] }));
+authRouter.get('/facebook', passport.authenticate('facebook', { scope: ['email'] }));
 
-router.get('/facebook/callback', passport.authenticate('facebook'), (req, res) => {
+authRouter.get('/facebook/callback', passport.authenticate('facebook'), (req, res) => {
   res.redirect('/viewreports');
 });
 
-router.get('/google', passport.authenticate('google', { scope: ['email'] }));
+authRouter.get('/google', passport.authenticate('google', { scope: ['email'] }));
 
-router.get('/google/callback', passport.authenticate('google'), (req, res) => {
+authRouter.get('/google/callback', passport.authenticate('google'), (req, res) => {
   res.redirect('/viewreports');
 });
 
-router.get('/current_user', requireLogin, (req, res) => {
+authRouter.get('/current_user', requireLogin, (req, res) => {
   res.redirect('/viewreports');
 });
 
-router.get('/logout', (req, res) => {
+authRouter.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 });
 
-module.exports = router;
+module.exports = authRouter;

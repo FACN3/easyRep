@@ -130,6 +130,18 @@ ul {
   transform: rotate(45deg);
 }
 
+.dropzone {
+  aria-disabled: "false";
+  width: 10rem;
+  height: 10rem;
+  border-width: 2px;
+  border-color: rgb(102, 102, 102);
+  border-style: dashed;
+  border-radius: 5px;
+  margin: auto;
+
+}
+
 @media screen and (max-width: 600px) {
   body {
     background-image: url('./edited1.jpg');

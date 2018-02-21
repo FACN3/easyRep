@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import proud from '../icons/proud.gif';
 
 class ThankYou extends Component {
-
   constructor(props) {
     super(props);
 
@@ -14,7 +13,14 @@ class ThankYou extends Component {
   }
 
   componentDidMount() {
-    const properPath = ['home', 'categories', 'symptoms', 'location', 'upload', 'review'];
+    const properPath = [
+      'home',
+      'categories',
+      'symptoms',
+      'location',
+      'upload',
+      'review'
+    ];
     const prevPath = this.props.pathHistory;
 
     const isExact = [prevPath].filter(idx => {
@@ -32,7 +38,7 @@ class ThankYou extends Component {
 
   render() {
     if (this.state.redirectHome) {
-      return <Redirect to="/" />
+      return <Redirect to="/" />;
     }
     return (
       <div className="mw7 center ma">
@@ -53,14 +59,15 @@ class ThankYou extends Component {
           <a
             className="ttu tracked f3-ns f6 dib dim fw7-ns fw5 link br3 ph6 pv3-ns pv2 mb4 orange bg-white"
             href="/"
-            title="Home">
+            title="Home"
+          >
             Home
           </a>
         </div>
       </div>
     );
   }
-};
+}
 
 const mapStateToProps = ({ page, pathHistory }) => ({ page, pathHistory });
 

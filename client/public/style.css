@@ -38,10 +38,9 @@ ul {
   font-family: 'Arvo', serif;
 }
 
-
 .symptomList {
   list-style-type: circle;
-
+}
 .reportButton {
   background-color: #ff4500;
   color: #fff;
@@ -143,7 +142,6 @@ ul {
     background-image: url('./edited.jpg');
     height: 50rem;
   }
-
 }
 
 @media screen and (max-width: 375px) {

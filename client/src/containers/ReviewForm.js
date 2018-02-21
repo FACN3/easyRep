@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import * as actions from '../actions';
+import { locationdata } from '../location_data';
 
 class ReviewForm extends Component {
   constructor(props) {
@@ -15,6 +17,7 @@ class ReviewForm extends Component {
     this.updateNext = this.updateNext.bind(this);
     this.sendEmail = this.sendEmail.bind(this);
     this.listSymptoms = this.listSymptoms.bind(this);
+    this.renderEmail = this.renderEmail.bind(this);
   }
 
   componentDidMount() {
@@ -57,27 +60,46 @@ class ReviewForm extends Component {
     const effects = chosenSymptoms.join(',');
     const report = { location, report_type: category, effects };
 
-    const emailText = `Dear Mr. John Doe, I would like to report ${category} hazard in ${location}.
+    const emailText = `Dear ${this.renderEmail()}, I would like to report ${category} hazard in ${location}.
         The inconveniences I am experiencing are: ${chosenSymptoms}.
         Attached is a picture of the problem. Please take care of this issue right away.
         Best regards,
         A concerned citizen`;
 
     const email = { email: emailText };
+
     this.props.emailSending(email);
     this.props.createReport(report);
+
+    axios
+      .post('/api/send_email', email)
+      .then(res => {
+        this.props.emailSending(res.data);
+        this.props.history.push('/thankyou');
+      })
+      .catch(err => {
+        this.props.handlingError('Could not send email successfully');
+        this.props.history.push('/error');
+      });
+
     this.updateNext();
+  }
+
+  renderEmail() {
+    const locationObject = locationdata.filter(data => data.value === this.props.location);
+    return locationObject[0].name;
   }
 
   render() {
     if (this.state.redirectHome) {
       return <Redirect to="/" />;
     }
+
     return (
       <div className="mw6 mw7-ns center ph3 ph3-ns">
         <div className="ph3">
           <div>
-            <p> Dear Mr. John Doe,</p>
+            <p> Dear {this.renderEmail()}</p>
             <div>
               I would like to report {this.props.category} hazard in {this.props.location}.
               <p>The inconveniences I am experiencing are: </p>
@@ -96,13 +118,12 @@ class ReviewForm extends Component {
           >
             Back
           </Link>
-          <Link
+          <button
             className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
-            to="/thankyou"
             onClick={this.sendEmail}
           >
             SUBMIT
-          </Link>
+          </button>
         </div>
       </div>
     );
@@ -121,6 +142,7 @@ const mapStateToProps = ({ page, pathHistory, category, chosenSymptoms, symptoms
 const mapDispatchToProps = dispatch => ({
   emailSending: email => dispatch(actions.emailSending(email)),
   createReport: report => dispatch(actions.createReport(report)),
+  handlingError: error => dispatch(actions.handlingError(error)),
   countPages: (page, direction) => dispatch(actions.pageCounter(page, direction)),
   addToHistory: history => dispatch(actions.recordHistory(history)),
 });

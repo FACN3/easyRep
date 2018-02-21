@@ -4,11 +4,14 @@ import {
   CHOSEN_SYMPTOMS,
   FETCH_SYMPTOMS,
   SELECT_LOCATION,
+  SAVE_FILE,
   PAGE_COUNTER,
   CHECK_HISTORY,
   SEND_EMAIL,
   CREATE_REPORT,
+  ERROR_MESSAGE
 } from './types';
+
 
 export const chooseCategory = category => {
   return { type: FETCH_CATEGORY, payload: category };
@@ -28,6 +31,10 @@ export const chooseSymptoms = symptoms => {
 
 export const renderSymptoms = category => {
   return { type: FETCH_SYMPTOMS, payload: category };
+};
+
+export const saveFile = fileUrl => {
+  return { type: SAVE_FILE, payload: fileUrl };
 };
 
 export const pageCounter = (counter, direction) => {
@@ -51,12 +58,6 @@ export const recordHistory = history => {
 };
 
 export const emailSending = email => {
-  axios
-    .post('/api/send_email', email)
-    .then(res => console.log(res))
-    .catch(err => {
-      console.log('errorr while sending email', err);
-    });
   return { type: SEND_EMAIL, payload: email };
 };
 
@@ -70,4 +71,8 @@ export const createReport = report => {
       console.log('errorr while sending email', err);
     });
   return { type: CREATE_REPORT, payload: report };
+
+export const handlingError = error => {
+  return { type: ERROR_MESSAGE, payload: error };
+
 };

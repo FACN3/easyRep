@@ -106,36 +106,37 @@ class ReviewForm extends Component {
     return (
       <div className="w-100">
         <Navbar />
-        <div className="mw6 mw7-ns center ph3 ph3-ns">
-          <div className="ph3">
-            <div>
-              <p> Dear {this.renderEmail()}</p>
-              <div>
-                I would like to report {this.props.category} hazard in {this.props.location}.
-                <p>The inconveniences I am experiencing are: </p>
-                <ul className="symptomList">
-                  {this.listSymptoms(this.props.chosenSymptoms)}
-                </ul>Attached is a picture of the problem. Please take care of this issue right
-                away.
-                <p> Best regards,</p>
-                <p> A concerned citizen</p>
-              </div>
+      <div className="mw6 mw7-ns center ph3 ph3-ns">
+        <div className="ph3">
+          <h3 className="tc pt2">Here is the content of the email we will send.</h3>
+          <div >
+            <div className=" mw6-ns mv4 ph2 ph5-ns tj pv1 ml6-ns">
+            <p> Dear {this.renderEmail()}</p>
+              I would like to report {this.props.category} hazard in {this.props.location}.
+              <p>The inconveniences I am experiencing are: </p>
+              <ul className="symptomList">
+                {this.listSymptoms(this.props.chosenSymptoms)}
+              </ul>Attached is a picture of the problem. Please take care of this issue right away.
+              <p> Best regards,</p>
+              <p> A concerned citizen</p>
+
             </div>
 
-            <Link
-              className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
-              to="/upload"
-              onClick={this.updateBack}
-            >
-              Back
-            </Link>
-            <button
-              className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
-              onClick={this.sendEmail}
-            >
-              SUBMIT
-            </button>
-          </div>
+
+          <Link
+            className="ba f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
+            to="/upload"
+            onClick={this.updateBack}
+          >
+            Back
+          </Link>
+          <button
+            className="ba f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
+            onClick={this.sendEmail}
+          >
+            SUBMIT
+          </button>
+
         </div>
       </div>
     );

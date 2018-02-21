@@ -21,8 +21,8 @@ class ErrorMessage extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>{this.state.errorMessage.toString()}</h1>
+      <div className="mw7 center pv5">
+        <h1 className="tc">{this.state.errorMessage.toString()}</h1>
       </div>
     );
   }

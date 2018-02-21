@@ -75,6 +75,7 @@ class ReviewForm extends Component {
       })
       .catch(err => {
         this.props.handlingError('Could not save report successfully');
+        this.props.history.push('/error');
       });
 
     axios

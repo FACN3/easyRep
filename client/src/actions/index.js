@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {
   FETCH_CATEGORY,
   CHOSEN_SYMPTOMS,

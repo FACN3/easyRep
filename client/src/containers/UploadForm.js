@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import sha1 from 'sha1';
-import axios from 'axios';
+import axios from 'superagent';
 import Dropzone from 'react-dropzone';
 import keys from '../config/keys';
 
@@ -50,7 +50,7 @@ class UploadForm extends Component {
       signature,
     };
 
-    let uploadRequest = axios.post(url);
+    let uploadRequest = superagent.post(url);
     uploadRequest.attach('file', file);
 
     Object.keys(params).forEach(key => {
@@ -59,10 +59,10 @@ class UploadForm extends Component {
 
     uploadRequest.end((err, res) => {
       if (err) {
-        alert(err);
+        this.props.handlingError('Could not upload image succesfully');
+        this.props.history.push('/error');
         return;
       }
-
       this.setState({ imageUrl: res.body.url });
     });
   }
@@ -123,6 +123,7 @@ class UploadForm extends Component {
 const mapStateToProps = ({ page, pathHistory }) => ({ page, pathHistory });
 
 const mapDispatchToProps = dispatch => ({
+  handlingError: error => dispatch(actions.handlingError(error)),
   saveFileUrl: url => dispatch(actions.saveFile(url)),
   countPages: (page, direction) => dispatch(actions.pageCounter(page, direction)),
   addToHistory: history => dispatch(actions.recordHistory(history)),

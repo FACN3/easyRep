@@ -6,6 +6,7 @@ import sha1 from 'sha1';
 import superagent from 'superagent';
 import Dropzone from 'react-dropzone';
 import keys from '../config/keys';
+import uploadIcon from '../icons/Cloud_Upload.png';
 import Navbar from '../components/Navbar';
 
 class UploadForm extends Component {
@@ -14,6 +15,7 @@ class UploadForm extends Component {
 
     this.state = {
       redirectHome: false,
+      imageUrl: uploadIcon
     };
 
     this.uploadFile = this.uploadFile.bind(this);
@@ -94,30 +96,35 @@ class UploadForm extends Component {
       <div className="w-100">
         <Navbar />
       <div className="mw6 mw7-ns center ph3 ph3-ns">
-        <div className="ph3">
-          <Dropzone onDrop={this.uploadFile}>
+        <div className="ph3 pv4 pv3-ns center">
+          <div className="mw5 mw5-ns pv3 ph1 center">
+          <h3 className="tc ph2 fw5 pv2 f4">Upload an Image (optional)</h3>
+          <Dropzone className="dropzone" onDrop={this.uploadFile}>
             <img
               className="tc"
-              height="200"
-              width="300"
+              height="100%"
+              width="100%"
               src={this.state.imageUrl}
               alt="Upload Image"
             />
           </Dropzone>
+        </div>
+        <div className="pv3 mt3">
           <Link
-            className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
+            className="ba f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
             to="/location"
             onClick={this.updateBack}
           >
             Back
           </Link>
           <Link
-            className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
+            className="ba f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
             to="/review"
             onClick={this.updateNext}
           >
             Next
           </Link>
+        </div>
         </div>
       </div>
     </div>

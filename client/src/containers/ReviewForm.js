@@ -129,22 +129,24 @@ class ReviewForm extends Component {
                 <p> Best regards,</p>
                 <p> A concerned citizen</p>
               </div>
+
             </div>
 
-            <Link
-              className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
-              to="/upload"
-              onClick={this.updateBack}
-            >
-              Back
-            </Link>
-            <button
-              className="f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
-              onClick={this.sendEmail}
-            >
-              SUBMIT
-            </button>
-          </div>
+
+          <Link
+            className="ba f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fl"
+            to="/upload"
+            onClick={this.updateBack}
+          >
+            Back
+          </Link>
+          <button
+            className="ba f6 fw6 ttu tracked link dim br3 ph3 pv2 mb2 dib orange bg-white fr"
+            onClick={this.sendEmail}
+          >
+            SUBMIT
+          </button>
+
         </div>
       </div>
     );

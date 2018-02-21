@@ -115,6 +115,7 @@ class SymptomsForm extends Component {
               Next
             </Link>
           </div>
+
         </div>
       </div>
     );

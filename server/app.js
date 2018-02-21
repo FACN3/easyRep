@@ -16,7 +16,6 @@ const port = process.env.PORT || 5000;
 const host = process.env.HOST || 'localhost';
 
 app.use(logger('dev'));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(

@@ -9,6 +9,7 @@ import ReviewForm from './containers/ReviewForm';
 import ThankYou from './components/ThankYou';
 import Login from './components/Login';
 import ViewReports from './components/ViewReports';
+import ErrorMessage from './components/ErrorMessage';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route exact path="/upload" component={UploadForm} />
         <Route exact path="/review" component={ReviewForm} />
         <Route exact path="/thankyou" component={ThankYou} />
+        <Route exact path="/error" component={ErrorMessage} />
       </div>
     </BrowserRouter>
   );

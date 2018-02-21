@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   FETCH_CATEGORY,
   CHOSEN_SYMPTOMS,
@@ -5,9 +6,11 @@ import {
   SELECT_LOCATION,
   SAVE_FILE,
   PAGE_COUNTER,
-  CHECK_HISTORY
-  } from './types';
-
+  CHECK_HISTORY,
+  SEND_EMAIL,
+  CREATE_REPORT,
+  ERROR_MESSAGE,
+} from './types';
 
 export const chooseCategory = category => {
   return { type: FETCH_CATEGORY, payload: category };
@@ -47,8 +50,20 @@ export const pageCounter = (counter, direction) => {
   }
 
   return { type: PAGE_COUNTER, payload: count };
-}
+};
 
 export const recordHistory = history => {
   return { type: CHECK_HISTORY, payload: history };
-}
+};
+
+export const emailSending = email => {
+  return { type: SEND_EMAIL, payload: email };
+};
+
+export const createReport = report => {
+  return { type: CREATE_REPORT, payload: report };
+};
+
+export const handlingError = error => {
+  return { type: ERROR_MESSAGE, payload: error };
+};

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import sha1 from 'sha1';
-import superagent from 'superagent';
-import Dropzone from 'react-dropzone'
+import axios from 'axios';
+import Dropzone from 'react-dropzone';
 import keys from '../config/keys';
 import Navbar from '../components/Navbar';
 
@@ -19,7 +19,6 @@ class UploadForm extends Component {
     this.uploadFile = this.uploadFile.bind(this);
     this.updateBack = this.updateBack.bind(this);
     this.updateNext = this.updateNext.bind(this);
-
   }
 
   componentDidMount() {
@@ -30,11 +29,7 @@ class UploadForm extends Component {
       return prevPath[idx] !== properPath[idx];
     });
 
-    if (
-      isExact.length !== 0 ||
-      this.props.page !== 4 ||
-      prevPath.length !== 4
-    ) {
+    if (isExact.length !== 0 || this.props.page !== 4 || prevPath.length !== 4) {
       this.setState({ redirectHome: true });
     }
   }
@@ -47,9 +42,7 @@ class UploadForm extends Component {
     const upload_preset = keys.IMAGE_UPLOAD_PRESET;
     const api_secret = keys.IMAGE_API_SECRET;
     const api_key = keys.IMAGE_API_KEY;
-    const paramStr = `timestamp=${timestamp}&upload_preset=${upload_preset}${
-      api_secret
-    }`;
+    const paramStr = `timestamp=${timestamp}&upload_preset=${upload_preset}${api_secret}`;
     const signature = sha1(paramStr);
     const params = {
       api_key,
@@ -58,7 +51,7 @@ class UploadForm extends Component {
       signature,
     };
 
-    let uploadRequest = superagent.post(url);
+    let uploadRequest = axios.post(url);
     uploadRequest.attach('file', file);
 
     Object.keys(params).forEach(key => {
@@ -136,9 +129,8 @@ const mapStateToProps = ({ page, pathHistory }) => ({ page, pathHistory });
 
 const mapDispatchToProps = dispatch => ({
   saveFileUrl: url => dispatch(actions.saveFile(url)),
-  countPages: (page, direction) =>
-    dispatch(actions.pageCounter(page, direction)),
-  addToHistory: history => dispatch(actions.recordHistory(history))
+  countPages: (page, direction) => dispatch(actions.pageCounter(page, direction)),
+  addToHistory: history => dispatch(actions.recordHistory(history)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UploadForm);

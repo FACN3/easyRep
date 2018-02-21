@@ -1,3 +1,4 @@
+
 const router = require('express').Router();
 const passport = require('passport');
 const requireLogin = require('../middlewares/requireLogin');
@@ -24,3 +25,4 @@ router.get('/logout', (req, res) => {
 });
 
 module.exports = router;
+

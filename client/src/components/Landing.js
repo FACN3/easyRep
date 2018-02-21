@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import Navbar from './Navbar';
 
 class Landing extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class Landing extends Component {
   render() {
       return (
         <div className="landingBackground">
+          <Navbar />
           <header className="tc pv4">
             <h1 className="f1">EasyRep</h1>
             <h2 className="f3">

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import * as actions from '../actions';
+import Navbar from '../components/Navbar';
 
 class SymptomsForm extends Component {
   constructor(props) {
@@ -92,6 +93,8 @@ class SymptomsForm extends Component {
     }
 
     return (
+      <div className="w-100">
+        <Navbar />
       <div className="mw6 mw7-ns center ph3 ph3-ns">
         <form className="pv3 pv4-ns ml4 pl4-ns">
           {this.renderSymptoms(this.props.category)}
@@ -113,6 +116,7 @@ class SymptomsForm extends Component {
           </Link>
         </div>
       </div>
+    </div>
     );
   }
 }

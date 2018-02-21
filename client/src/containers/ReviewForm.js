@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import * as actions from '../actions';
+import Navbar from '../components/Navbar';
 import { locationdata } from '../location_data';
 
 class ReviewForm extends Component {
@@ -102,6 +103,8 @@ class ReviewForm extends Component {
     }
 
     return (
+      <div className="w-100">
+        <Navbar />
       <div className="mw6 mw7-ns center ph3 ph3-ns">
         <div className="ph3">
           <div>
@@ -132,6 +135,7 @@ class ReviewForm extends Component {
           </button>
         </div>
       </div>
+    </div>
     );
   }
 }

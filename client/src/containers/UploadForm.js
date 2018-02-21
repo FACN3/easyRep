@@ -6,6 +6,7 @@ import sha1 from 'sha1';
 import axios from 'axios';
 import Dropzone from 'react-dropzone';
 import keys from '../config/keys';
+import Navbar from '../components/Navbar';
 
 class UploadForm extends Component {
   constructor(props) {
@@ -64,6 +65,7 @@ class UploadForm extends Component {
       }
 
       this.setState({ imageUrl: res.body.url });
+
     });
   }
 
@@ -89,6 +91,8 @@ class UploadForm extends Component {
 
   render() {
     return (
+      <div className="w-100">
+        <Navbar />
       <div className="mw6 mw7-ns center ph3 ph3-ns">
         <div className="ph3">
           <Dropzone onDrop={this.uploadFile}>
@@ -116,6 +120,7 @@ class UploadForm extends Component {
           </Link>
         </div>
       </div>
+    </div>
     );
   }
 }

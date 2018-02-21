@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import * as actions from '../actions';
+import Navbar from '../components/Navbar';
 
 class CategoryForm extends Component {
   constructor(props) {
@@ -77,11 +78,14 @@ class CategoryForm extends Component {
     }
 
     return (
+      <div className="w-100">
+        <Navbar />
       <div className="mw7 center ph3-ns">
         <div className="cf ph2-ns">
           <ul className="tc">{this.renderList()}</ul>
         </div>
       </div>
+    </div>
     );
   }
 }

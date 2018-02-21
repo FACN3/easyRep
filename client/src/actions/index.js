@@ -9,9 +9,8 @@ import {
   CHECK_HISTORY,
   SEND_EMAIL,
   CREATE_REPORT,
-  ERROR_MESSAGE
+  ERROR_MESSAGE,
 } from './types';
-
 
 export const chooseCategory = category => {
   return { type: FETCH_CATEGORY, payload: category };
@@ -62,17 +61,9 @@ export const emailSending = email => {
 };
 
 export const createReport = report => {
-  axios
-    .post('/api/create_report', report)
-    .then(res => {
-      console.log('this is from action', res);
-    })
-    .catch(err => {
-      console.log('errorr while sending email', err);
-    });
   return { type: CREATE_REPORT, payload: report };
+};
 
 export const handlingError = error => {
   return { type: ERROR_MESSAGE, payload: error };
-
 };

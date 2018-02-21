@@ -68,8 +68,14 @@ class ReviewForm extends Component {
 
     const email = { email: emailText };
 
-    this.props.emailSending(email);
-    this.props.createReport(report);
+    axios
+      .post('/api/create_report', report)
+      .then(res => {
+        this.props.createReport(report);
+      })
+      .catch(err => {
+        this.props.handlingError('Could not save report successfully');
+      });
 
     axios
       .post('/api/send_email', email)

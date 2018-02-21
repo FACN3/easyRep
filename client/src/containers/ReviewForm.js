@@ -57,9 +57,9 @@ class ReviewForm extends Component {
   }
 
   sendEmail() {
-    const { category, location, chosenSymptoms } = this.props;
+    const { category, location, chosenSymptoms, imageUrl } = this.props;
     const effects = chosenSymptoms.join(',');
-    const report = { location, report_type: category, effects };
+    const report = { location, report_type: category, effects, imageUrl };
 
     const emailText = `Dear ${this.renderEmail()}, I would like to report ${category} hazard in ${location}.
         The inconveniences I am experiencing are: ${chosenSymptoms}.
@@ -76,6 +76,7 @@ class ReviewForm extends Component {
       })
       .catch(err => {
         this.props.handlingError('Could not save report successfully');
+        this.props.history.push('/error');
       });
 
     axios
@@ -140,8 +141,17 @@ class ReviewForm extends Component {
   }
 }
 
-const mapStateToProps = ({ page, pathHistory, category, chosenSymptoms, symptoms, location }) => ({
+const mapStateToProps = ({
   page,
+  imageUrl,
+  pathHistory,
+  category,
+  chosenSymptoms,
+  symptoms,
+  location,
+}) => ({
+  page,
+  imageUrl,
   pathHistory,
   category,
   symptoms,
